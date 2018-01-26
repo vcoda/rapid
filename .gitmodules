@@ -1,0 +1,4 @@
+[submodule "DirectXMath"]
+	path = DirectXMath
+	url = https://github.com/Microsoft/DirectXMath.git
+	branch = master
