@@ -23,6 +23,7 @@ namespace rapid
 #include "matrix.inl"
 #include "quaternion.h"
 #include "quaternion.inl"
+#include "plane.h"
 #include "sincos.inl"
 
 namespace rapid
