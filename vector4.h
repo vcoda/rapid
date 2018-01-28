@@ -19,8 +19,8 @@ namespace rapid
         bool operator<(const vector4& v) const { return XMVector4Less(V, v.V); }
         bool operator<=(const vector4& v) const { return XMVector4LessOrEqual(V, v.V); }
 
-        vector4 operator|(const vector4& v) const { return dot(v); }
-        vector4 operator!() const { return length(); }
+        vector4 operator|(const vector4& v) const { return XMVector4Dot(V, v.V); }
+        vector4 operator!() const { return XMVector4Length(V); }
 
         bool nan() const { return XMVector4IsNaN(V); }
         bool infinite() const { return XMVector4IsInfinite(V); }
