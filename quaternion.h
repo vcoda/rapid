@@ -18,6 +18,10 @@ namespace rapid
         bool operator==(const quaternion& q) const { return XMQuaternionEqual(Q, q.Q); }
         bool operator!=(const quaternion& q) const { return XMQuaternionNotEqual(Q, q.Q); }
 
+        vector operator|(const quaternion& q) const { return XMQuaternionDot(Q, q.Q); }
+        vector operator!() const { return XMQuaternionLength(Q); }
+        vector operator~() const { return XMQuaternionInverse(Q); }
+
         bool nan() const { return XMQuaternionIsNaN(Q); }
         bool infinite() const { return XMQuaternionIsInfinite(Q); }
         bool unit() const { return XMQuaternionIsIdentity(Q); }
@@ -40,4 +44,6 @@ namespace rapid
 
         operator XMVECTOR() const { return Q; }
     };
+
+    inline vector3 operator*(const vector3& v, const quaternion& q) { return XMVector3Rotate(v.V, q.Q); }
 } // namespace rapid
