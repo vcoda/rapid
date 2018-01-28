@@ -21,6 +21,8 @@ namespace rapid
 #include "matrix.h"
 #include "vector.inl"
 #include "matrix.inl"
+#include "quaternion.h"
+#include "quaternion.inl"
 
 namespace rapid
 {
