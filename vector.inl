@@ -30,8 +30,8 @@ namespace rapid
     inline vector sinEst(const vector& v) { return XMVectorSinEst(v.V); }
     inline vector cos(const vector& v) { return XMVectorCos(v.V); }
     inline vector cosEst(const vector& v) { return XMVectorCosEst(v.V); }
-    inline void sinCos(vector *psin, vector *pcos, const vector& v) { XMVectorSinCos(&psin->V, &pcos->V, v.V); }
-    inline void sinCosEst(vector *psin, vector *pcos, const vector& v) { XMVectorSinCosEst(&psin->V, &pcos->V, v.V); }
+    inline void sincos(vector *psin, vector *pcos, const vector& v) { XMVectorSinCos(&psin->V, &pcos->V, v.V); }
+    inline void sincosEst(vector *psin, vector *pcos, const vector& v) { XMVectorSinCosEst(&psin->V, &pcos->V, v.V); }
     inline vector tan(const vector& v) { return XMVectorTan(v.V); }
     inline vector tanEst(const vector& v) { return XMVectorTanEst(v.V); }
     inline vector sinh(const vector& v) { return XMVectorSinH(v.V); }

@@ -1,8 +1,11 @@
 namespace rapid
 {
-    inline matrix transpose(const matrix& m) { return XMMatrixTranspose(m); }
-    inline matrix inverse(const matrix& m) { vector det; return XMMatrixInverse(&det.V, m); }
-    inline matrix inverse(vector *det, const matrix& m) { return XMMatrixInverse(&det->V, m); }
+    inline matrix transpose(const matrix& m) 
+        { return XMMatrixTranspose(m); }
+    inline matrix inverse(const matrix& m) 
+        { vector det; return XMMatrixInverse(&det.V, m); }
+    inline matrix inverse(vector *det, const matrix& m) 
+        { return XMMatrixInverse(&det->V, m); }
 
     inline matrix identity() { return XMMatrixIdentity(); }
     inline matrix translation(float offsetX, float offsetY, float offsetZ) 
