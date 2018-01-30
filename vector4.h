@@ -39,7 +39,9 @@ namespace rapid
         vector4 clampLength(const float min, const float max) { return XMVector4ClampLength(V, min, max); }
         vector4 clampLength(const vector4& min, const vector4& max) { return XMVector4ClampLengthV(V, min.V, max.V); }
 
-        float w() const { XMVectorGetW(V); }
+        float y() const { return XMVectorGetY(V); }
+        float z() const { return XMVectorGetZ(V); }
+        float w() const { return XMVectorGetW(V); }
 
         operator float4() const { float4 v; XMStoreFloat4(&v, V); return v; }
         operator float4a() const { float4a v; XMStoreFloat4A(&v, V); return v; }

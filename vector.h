@@ -28,7 +28,7 @@ namespace rapid
         void splatEpsilon() { V = XMVectorSplatEpsilon(); }
         void splatSignMask() { V = XMVectorSplatSignMask(); }
 
-        float x() const { XMVectorGetX(V); }
+        float x() const { return XMVectorGetX(V); }
 
         operator XMVECTOR() const { return V; }
         operator float() const { float s; XMStoreFloat(&s, V); return s; }
