@@ -13,24 +13,23 @@ namespace rapid
         quaternion(const matrix& m): Q(XMQuaternionRotationMatrix(m)) {}
         quaternion(const float x, const float y, const float z, const float w): Q(XMVectorSet(x, y, z, w)) {}
 
-        quaternion operator*(const quaternion& q) const { return XMQuaternionMultiply(Q, q.Q); }
-
         bool operator==(const quaternion& q) const { return XMQuaternionEqual(Q, q.Q); }
         bool operator!=(const quaternion& q) const { return XMQuaternionNotEqual(Q, q.Q); }
 
+        quaternion operator*(const quaternion& q) const { return XMQuaternionMultiply(Q, q.Q); }
         vector operator|(const quaternion& q) const { return XMQuaternionDot(Q, q.Q); }
         vector operator!() const { return XMQuaternionLength(Q); }
-        vector operator~() const { return XMQuaternionInverse(Q); }
+        quaternion operator~() const { return XMQuaternionInverse(Q); }
 
         bool nan() const { return XMQuaternionIsNaN(Q); }
         bool infinite() const { return XMQuaternionIsInfinite(Q); }
         bool unit() const { return XMQuaternionIsIdentity(Q); }
 
         void identity() { Q = XMQuaternionIdentity(); }
-        quaternion dot(const quaternion& q) { return XMQuaternionDot(Q, q.Q); }
-        quaternion lengthSq() const { return XMQuaternionLengthSq(Q); }
-        quaternion rcpLengthSq() const { return XMQuaternionReciprocalLength(Q); }
-        quaternion length() const { return XMQuaternionLength(Q); }
+        vector dot(const quaternion& q) { return XMQuaternionDot(Q, q.Q); }
+        vector lengthSq() const { return XMQuaternionLengthSq(Q); }
+        vector rcpLengthSq() const { return XMQuaternionReciprocalLength(Q); }
+        vector length() const { return XMQuaternionLength(Q); }
         void normalizeEst() { Q = XMQuaternionNormalizeEst(Q); }
         quaternion normalizedEst() const { return XMQuaternionNormalizeEst(Q); }
         void normalize() { Q = XMQuaternionNormalize(Q); }
