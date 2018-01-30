@@ -1,5 +1,8 @@
 namespace rapid
 {
+    inline matrix::matrix(const quaternion& q): 
+        XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
+
     inline matrix transpose(const matrix& m) 
         { return XMMatrixTranspose(m); }
     inline matrix inverse(const matrix& m) 
