@@ -45,7 +45,8 @@ namespace rapid
         float z() const { return XMVectorGetZ(V); }
         float w() const { return XMVectorGetW(V); }
 
-        operator float4() const { float4 v; XMStoreFloat4(&v, V); return v; }
+        operator float2a() const { float2a v; XMStoreFloat2A(&v, V); return v; }
+        operator float3a() const { float3a v; XMStoreFloat3A(&v, V); return v; }
         operator float4a() const { float4a v; XMStoreFloat4A(&v, V); return v; }
     };
 } // namespace rapid
