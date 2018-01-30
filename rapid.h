@@ -19,11 +19,11 @@ namespace rapid
 #include "vector3.h"
 #include "vector4.h"
 #include "matrix.h"
+#include "quaternion.h"
+#include "plane.h"
 #include "vector.inl"
 #include "matrix.inl"
-#include "quaternion.h"
 #include "quaternion.inl"
-#include "plane.h"
 #include "sincos.inl"
 
 namespace rapid
