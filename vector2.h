@@ -11,6 +11,25 @@ namespace rapid
         vector2(const float2& v): vector(XMLoadFloat2(&v)) {}
         vector2(const float2a& v): vector(XMLoadFloat2A(&v)) {}
 
+        vector2 operator+(const vector2& v) const { return XMVectorAdd(V, v.V); }
+        vector2 operator-(const vector2& v) const { return XMVectorSubtract(V, v.V); }
+        vector2 operator*(const vector2& v) const { return XMVectorMultiply(V, v.V); }
+        vector2 operator*(const float s) const { return XMVectorScale(V, s); }
+        vector2 operator/(const vector2& v) const { return XMVectorDivide(V, v.V); }
+        vector2 operator/(const float s) const { return XMVectorScale(V, 1.f/s); }
+        vector operator|(const vector2& v) const { return XMVector2Dot(V, v.V); }
+        vector2 operator^(const vector2& v) const { return XMVector2Cross(V, v.V); }
+        vector operator!() const { return XMVector2Length(V); }
+
+        const vector2& operator+() const { return *this; }
+        vector2 operator-() const { return XMVectorNegate(V); }
+        const vector2& operator+=(const vector2& v) { V = XMVectorAdd(V, v.V); return *this; }
+        const vector2& operator-=(const vector2& v) { V = XMVectorSubtract(V, v.V); return *this; }
+        const vector2& operator*=(const vector2& v) { V = XMVectorMultiply(V, v.V); return *this; }
+        const vector2& operator*=(const float s) { V = XMVectorScale(V, s); return *this; }
+        const vector2& operator/=(const vector2& v) { V = XMVectorDivide(V, v.V); return *this; }
+        const vector2& operator/=(const float s) { V = XMVectorScale(V, 1.f/s); return *this; }
+
         bool operator==(const vector2& v) const { return XMVector2Equal(V, v.V); }
         bool nearEqual(const vector2& v, const vector2& eps) const { return XMVector2NearEqual(V, v.V, eps); }
         bool operator!=(const vector2& v) const { return XMVector2NotEqual(V, v.V); }
@@ -19,20 +38,16 @@ namespace rapid
         bool operator<(const vector2& v) const { return XMVector2Less(V, v.V); }
         bool operator<=(const vector2& v) const { return XMVector2LessOrEqual(V, v.V); }
 
-        vector2 operator|(const vector2& v) const { return XMVector2Dot(V, v.V); }
-        vector2 operator^(const vector2& v) const { return XMVector2Cross(V, v.V); }
-        vector2 operator!() const { return XMVector2Length(V); }
-
         bool nan() const { return XMVector2IsNaN(V); }
         bool infinite() const { return XMVector2IsInfinite(V); }
 
-        vector2 dot(const vector2& v) const { return XMVector2Dot(V, v.V); }
+        vector dot(const vector2& v) const { return XMVector2Dot(V, v.V); }
         vector2 cross(const vector2& v) const { return XMVector2Cross(V, v.V); }
-        vector2 lengthSq() const { return XMVector2LengthSq(V); }
-        vector2 rcpLengthEst() const { return XMVector2ReciprocalLengthEst(V); }
-        vector2 rcpLength() const { return XMVector2ReciprocalLength(V); }
-        vector2 lengthEst() const { return XMVector2LengthEst(V); }
-        vector2 length() const { return XMVector2Length(V); }
+        vector lengthSq() const { return XMVector2LengthSq(V); }
+        vector rcpLengthEst() const { return XMVector2ReciprocalLengthEst(V); }
+        vector rcpLength() const { return XMVector2ReciprocalLength(V); }
+        vector lengthEst() const { return XMVector2LengthEst(V); }
+        vector length() const { return XMVector2Length(V); }
         void normalizeEst() { V = XMVector2NormalizeEst(V); }
         vector2 normalizedEst() const { return XMVector2NormalizeEst(V); }
         void normalize() { V = XMVector2Normalize(V); }
