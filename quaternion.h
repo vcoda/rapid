@@ -13,13 +13,15 @@ namespace rapid
         quaternion(const matrix& m): Q(XMQuaternionRotationMatrix(m)) {}
         quaternion(const float x, const float y, const float z, const float w): Q(XMVectorSet(x, y, z, w)) {}
 
-        bool operator==(const quaternion& q) const { return XMQuaternionEqual(Q, q.Q); }
-        bool operator!=(const quaternion& q) const { return XMQuaternionNotEqual(Q, q.Q); }
-
         quaternion operator*(const quaternion& q) const { return XMQuaternionMultiply(Q, q.Q); }
         vector operator|(const quaternion& q) const { return XMQuaternionDot(Q, q.Q); }
         vector operator!() const { return XMQuaternionLength(Q); }
         quaternion operator~() const { return XMQuaternionInverse(Q); }
+
+        const quaternion& operator*=(const quaternion& q) { Q = XMQuaternionMultiply(Q, q.Q); return *this; }
+
+        bool operator==(const quaternion& q) const { return XMQuaternionEqual(Q, q.Q); }
+        bool operator!=(const quaternion& q) const { return XMQuaternionNotEqual(Q, q.Q); }
 
         bool nan() const { return XMQuaternionIsNaN(Q); }
         bool infinite() const { return XMQuaternionIsInfinite(Q); }
