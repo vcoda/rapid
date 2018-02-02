@@ -15,8 +15,8 @@ namespace rapid
         const vector& operator+() const { return *this; }
         vector operator-() const { return XMVectorNegate(V); }
         vector operator+(const vector& v) const { return XMVectorAdd(V, v.V); }
-        vector operator-(const vector& v) const { return XMVectorSubtract(v, v.V); }
-        vector operator*(const vector& v) const { return XMVectorMultiply(v, v.V); }
+        vector operator-(const vector& v) const { return XMVectorSubtract(V, v.V); }
+        vector operator*(const vector& v) const { return XMVectorMultiply(V, v.V); }
         vector operator*(const float s) const { return XMVectorScale(V, s); }
         vector operator/(const vector& v) const { return XMVectorDivide(V, v.V); }
         vector operator/(const float s) const { return XMVectorScale(V, 1.f/s); }
