@@ -12,6 +12,15 @@ namespace rapid
     typedef XMFLOAT3A float3a;
     typedef XMFLOAT4 float4;
     typedef XMFLOAT4A float4a;
+
+    namespace constants
+    {
+        constexpr float pi = 3.14159265358979323846f;
+        constexpr float two_pi = 2.f * pi;
+        constexpr float half_pi = pi / 2.f;
+        constexpr float fourth_pi = pi / 4.f;
+        constexpr float eps = 1e-6f;
+    } // namespace constants
 } // namespace rapid
 
 #include "vector.h"
