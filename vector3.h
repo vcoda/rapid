@@ -8,6 +8,7 @@ namespace rapid
         vector3(const vector& v): vector(v) {}
         vector3(const float x): vector(x) {}
         vector3(const float x, const float y, const float z): vector(x, y, z) {}
+        vector3(const vector2& v, const float z): vector(v.x(), v.y(), z) {}
         vector3(const float3& v): vector(XMLoadFloat3(&v)) {}
         vector3(const float3a& v): vector(XMLoadFloat3A(&v)) {}
         
