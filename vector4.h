@@ -8,8 +8,10 @@ namespace rapid
         vector4(const vector& v): vector(v) {}
         vector4(const float x): vector(x) {}
         vector4(const float x, const float y, const float z, const float w): vector(x, y, z, w) {}
-        vector4(const float3& v, float w): vector4(v.x, v.y, v.z, w) {}
-        vector4(const float3a& v, float w): vector4(v.x, v.y, v.z, w) {}
+        vector4(const vector2& v, const float z, const float w): vector(v.x(), v.y(), z, w) {}
+        vector4(const vector3& v, const float w): vector(v) { V = XMVectorSetW(V, w); }
+        vector4(const float3& v, float w): vector(XMLoadFloat3(&v)) { V = XMVectorSetW(V, w); }
+        vector4(const float3a& v, float w): vector(XMLoadFloat3A(&v)) { V = XMVectorSetW(V, w); }
         vector4(const float4& v): vector(XMLoadFloat4(&v)) {}
         vector4(const float4a& v): vector(XMLoadFloat4A(&v)) {}
         
