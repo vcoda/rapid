@@ -7,11 +7,9 @@ namespace rapid
 
         quaternion() {}
         quaternion(FXMVECTOR q): Q(q) {}
-        quaternion(float pitch, float yaw, float roll): Q(XMQuaternionRotationRollPitchYaw(pitch, yaw, roll)) {}
-        quaternion(const vector& angles): Q(XMQuaternionRotationRollPitchYawFromVector(angles)) {}
-        quaternion(const vector& axis, float angle): Q(XMQuaternionRotationAxis(axis, angle)) {}
-        quaternion(const matrix& m): Q(XMQuaternionRotationMatrix(m)) {}
         quaternion(const float x, const float y, const float z, const float w): Q(XMVectorSet(x, y, z, w)) {}
+        quaternion(const vector3& v, const float w): Q(v) { Q = XMVectorSetW(Q, w); }
+        quaternion(const matrix& m): Q(XMQuaternionRotationMatrix(m)) {}
 
         quaternion operator*(const quaternion& q) const { return XMQuaternionMultiply(Q, q.Q); }
         vector operator|(const quaternion& q) const { return XMQuaternionDot(Q, q.Q); }
@@ -41,7 +39,16 @@ namespace rapid
         void inverse() { Q = XMQuaternionInverse(Q); }
         quaternion inversed() const { return XMQuaternionInverse(Q); }
 
+        void pitchYawRoll(float pitch, float yaw, float roll) { Q = XMQuaternionRotationRollPitchYaw(pitch, yaw, roll); }
+        void pitchYawRoll(const vector& angles) { Q = XMQuaternionRotationRollPitchYawFromVector(angles); }
+        void fromAxisAngle(const vector3& axis, float angle) { Q = XMQuaternionRotationAxis(axis, angle); }
         vector3 toAxisAngle(float& angle) const { XMVECTOR axis; XMQuaternionToAxisAngle(&axis, &angle, Q); return axis; }
+
+        float x() const { return XMVectorGetX(Q); }
+        float y() const { return XMVectorGetY(Q); }
+        float z() const { return XMVectorGetZ(Q); }
+        float w() const { return XMVectorGetW(Q); }
+        vector3 xyz() const { return Q; }
 
         operator XMVECTOR() const { return Q; }
     };
