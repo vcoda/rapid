@@ -3,7 +3,7 @@ namespace rapid
     class matrix : public XMMATRIX
     {
     public:
-        matrix() {}
+        matrix() { *this = XMMatrixIdentity(); }
         matrix(const XMMATRIX& m): XMMATRIX(m) {}
         matrix(const class quaternion& q);
 
