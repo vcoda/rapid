@@ -47,4 +47,21 @@ namespace rapid
     inline vector atan2Est(const vector& y, const vector& x) { return XMVectorATan2Est(y.V, x.V); }
     inline vector lerp(const vector& v1, const vector& v2, const float t) { return XMVectorLerp(v1.V, v2.V, t); }
     inline vector lerp(const vector& v1, const vector& v2, const vector& t) { return XMVectorLerpV(v1, v2, t); }
+
+    inline vector3 orthoProjectOnSphereRH(const vector2& v)
+    {
+        vector3 p(v, 0.f);
+        const float lengthSq = p.lengthSq();
+        if (lengthSq >= 1.f)
+            p.normalize();
+        else
+            p = vector3(p.x(), p.y(), ::sqrtf(1.f - lengthSq));
+        return p;
+    }
+
+    inline vector3 orthoProjectOnSphereLH(const vector2& v)
+    {
+        const vector3 p = orthoProjectOnSphereRH(v);
+        return p * vector3(1.f, 1.f, -1.f);
+    }
 } // namespace rapid
