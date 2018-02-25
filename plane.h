@@ -2,6 +2,7 @@ namespace rapid
 {
     class plane
     {
+    public:
         XMVECTOR P;
 
         plane() {}
