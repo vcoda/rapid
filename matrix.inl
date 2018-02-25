@@ -25,6 +25,10 @@ namespace rapid
         { return XMMatrixRotationY(angle); }
     inline matrix rotationZ(float angle)
         { return XMMatrixRotationZ(angle); }
+    inline matrix rotationNormal(const vector3& normal, float angle)
+        { return XMMatrixRotationNormal(normal, angle); }
+    inline matrix rotationAxis(const vector3& axis, float angle)
+        { return XMMatrixRotationAxis(axis, angle); }
 
     inline matrix lookAtLH(const vector& eyePosition, const vector& focusPosition, const vector& upDirection)
         { return XMMatrixLookAtLH(eyePosition, focusPosition, upDirection); }
