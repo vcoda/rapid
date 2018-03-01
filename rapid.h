@@ -1,5 +1,9 @@
 #pragma once
+#include "platform.h"
 #define _XM_AVX2_INTRINSICS_
+#ifdef __GNUC__
+#define _XM_NO_XMVECTOR_OVERLOADS_
+#endif
 #include "DirectXMath/Inc/DirectXMath.h"
 
 using namespace DirectX;
