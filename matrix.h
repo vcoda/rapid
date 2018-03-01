@@ -17,6 +17,6 @@ namespace rapid
         bool unit() const { return XMMatrixIsIdentity(*this); }
 
         void identity() { *this = XMMatrixIdentity(); }
-        vector determinant() const { XMMatrixDeterminant(*this); }
+        vector determinant() const { return XMMatrixDeterminant(*this); }
     };
 } // namespace rapid
