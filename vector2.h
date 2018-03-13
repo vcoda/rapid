@@ -57,7 +57,7 @@ namespace rapid
         vector2 clampLength(const float min, const float max) { return XMVector2ClampLength(V, min, max); }
         vector2 clampLength(const vector2& min, const vector2& max) { return XMVector2ClampLengthV(V, min.V, max.V); }
 
-
-        operator float2a() const { float2a v; XMStoreFloat2A(&v, V); return v; }
+        void store(float2 *v) const { XMStoreFloat2(v, V); };
+        void store(float2a *v) const { XMStoreFloat2A(v, V); };
     };
 } // namespace rapid

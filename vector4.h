@@ -62,9 +62,11 @@ namespace rapid
         vector4 clampLength(const float min, const float max) { return XMVector4ClampLength(V, min, max); }
         vector4 clampLength(const vector4& min, const vector4& max) { return XMVector4ClampLengthV(V, min.V, max.V); }
 
-
-        operator float2a() const { float2a v; XMStoreFloat2A(&v, V); return v; }
-        operator float3a() const { float3a v; XMStoreFloat3A(&v, V); return v; }
-        operator float4a() const { float4a v; XMStoreFloat4A(&v, V); return v; }
+        void store(float2 *v) const { XMStoreFloat2(v, V); };
+        void store(float2a *v) const { XMStoreFloat2A(v, V); };
+        void store(float3 *v) const { XMStoreFloat3(v, V); };
+        void store(float3a *v) const { XMStoreFloat3A(v, V); };
+        void store(float4 *v) const { XMStoreFloat4(v, V); };
+        void store(float4a *v) const { XMStoreFloat4A(v, V); };
     };
 } // namespace rapid
