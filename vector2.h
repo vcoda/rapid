@@ -38,6 +38,8 @@ namespace rapid
         bool operator<(const vector2& v) const { return XMVector2Less(V, v.V); }
         bool operator<=(const vector2& v) const { return XMVector2LessOrEqual(V, v.V); }
 
+        float y() const { return XMVectorGetY(V); }
+
         bool nan() const { return XMVector2IsNaN(V); }
         bool infinite() const { return XMVector2IsInfinite(V); }
 
@@ -55,7 +57,6 @@ namespace rapid
         vector2 clampLength(const float min, const float max) { return XMVector2ClampLength(V, min, max); }
         vector2 clampLength(const vector2& min, const vector2& max) { return XMVector2ClampLengthV(V, min.V, max.V); }
 
-        float y() const { return XMVectorGetY(V); }
 
         operator float2a() const { float2a v; XMStoreFloat2A(&v, V); return v; }
     };

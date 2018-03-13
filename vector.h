@@ -21,14 +21,14 @@ namespace rapid
         vector operator/(const vector& v) const { return XMVectorDivide(V, v.V); }
         vector operator/(const float s) const { return XMVectorScale(V, 1.f/s); }
 
+        float x() const { return XMVectorGetX(V); }
+
         void zero() { V = XMVectorZero(); }
         void splatOne() { V = XMVectorSplatOne(); }
         void splatInfinity() { V = XMVectorSplatInfinity(); }
         void splatQNaN() { V = XMVectorSplatQNaN(); }
         void splatEpsilon() { V = XMVectorSplatEpsilon(); }
         void splatSignMask() { V = XMVectorSplatSignMask(); }
-
-        float x() const { return XMVectorGetX(V); }
 
         operator XMVECTOR() const { return V; }
         operator float() const { float s; XMStoreFloat(&s, V); return s; }
