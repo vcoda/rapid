@@ -53,5 +53,6 @@ namespace rapid
         operator XMVECTOR() const { return Q; }
     };
 
-    inline vector3 operator*(const vector3& v, const quaternion& q) { return XMVector3Rotate(v.V, q.Q); }
+    inline vector3 operator*(const vector3& v, const quaternion& q) 
+        { return XMVector3Rotate(v.V, q.Q); }
 } // namespace rapid
