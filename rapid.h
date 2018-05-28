@@ -14,10 +14,16 @@ namespace rapid
 {
     typedef XMFLOAT2 float2;
     typedef XMFLOAT2A float2a;
+    typedef XMINT2 int2;
+    typedef XMUINT2 uint2;
     typedef XMFLOAT3 float3;
     typedef XMFLOAT3A float3a;
+    typedef XMINT3 int3;
+    typedef XMUINT3 uint3;
     typedef XMFLOAT4 float4;
     typedef XMFLOAT4A float4a;
+    typedef XMINT4 int4;
+    typedef XMUINT4 uint4;
 
     namespace constants
     {
