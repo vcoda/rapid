@@ -1,6 +1,6 @@
 namespace rapid
 {
-    class vector
+    class alignas(16) vector
     {
     public:
         XMVECTOR V;
