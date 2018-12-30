@@ -1,6 +1,6 @@
 namespace rapid
 {
-    class quaternion
+    class alignas(16) quaternion
     {
     public:
         XMVECTOR Q;

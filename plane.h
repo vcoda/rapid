@@ -1,6 +1,6 @@
 namespace rapid
 {
-    class plane
+    class alignas(16) plane
     {
     public:
         XMVECTOR P;
