@@ -50,8 +50,8 @@ namespace rapid
 
 namespace rapid
 {
-    inline float radians(const float degrees) 
+    inline constexpr float radians(const float degrees)
         { return XMConvertToRadians(degrees); }
-    inline float degrees(const float radians) 
+    inline constexpr float degrees(const float radians)
         { return XMConvertToDegrees(radians); }
 } // namespace rapid
