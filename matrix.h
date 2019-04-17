@@ -1,6 +1,6 @@
 namespace rapid
 {
-    class matrix : public XMMATRIX
+    class alignas(16) matrix : public XMMATRIX
     {
     public:
         matrix() { *this = XMMatrixIdentity(); }
