@@ -19,9 +19,10 @@ namespace rapid
         bool nan() const { return XMPlaneIsNaN(P); }
         bool infinite() const { return XMPlaneIsInfinite(P); }
 
-        vector dot(const vector3& v) { return XMPlaneDot(P, v.V); }
-        vector dotCoord(const vector3& coord) { return XMPlaneDotCoord(P, coord.V); }
-        vector dotNormal(const vector3& normal) { return XMPlaneDotNormal(P, normal.V); }
+        vector dot(const vector4& v) { return XMPlaneDot(P, v.V); }
+        vector dotNormal(const vector3& n) { return XMPlaneDotNormal(P, n.V); }
+        vector distance(const vector3& p) { return XMPlaneDotCoord(P, p.V); }
+
         void normalizeEst() { P = XMPlaneNormalizeEst(P); }
         plane normalizedEst() const { return XMPlaneNormalizeEst(P); }
         void normalize() { P = XMPlaneNormalize(P); }
