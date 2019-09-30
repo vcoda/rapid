@@ -11,7 +11,7 @@ namespace rapid
         vector3(const vector2& v, const float z): vector(v.x(), v.y(), z) {}
         vector3(const float3& v): vector(XMLoadFloat3(&v)) {}
         vector3(const float3a& v): vector(XMLoadFloat3A(&v)) {}
-        
+
         vector3 operator+(const vector3& v) const { return XMVectorAdd(V, v.V); }
         vector3 operator-(const vector3& v) const { return XMVectorSubtract(V, v.V); }
         vector3 operator*(const vector3& v) const { return XMVectorMultiply(V, v.V); }
@@ -57,7 +57,7 @@ namespace rapid
         void normalize() { V = XMVector3Normalize(V); }
         vector3 normalized() const { return XMVector3Normalize(V); }
         vector3 clampLength(const float min, const float max) { return XMVector3ClampLength(V, min, max); }
-        vector3 clampLength(const vector3& min, const vector3& max) { return XMVector3ClampLengthV(V, min.V, max.V); } 
+        vector3 clampLength(const vector3& min, const vector3& max) { return XMVector3ClampLengthV(V, min.V, max.V); }
 
         void store(float2 *v) const { XMStoreFloat2(v, V); };
         void store(float2a *v) const { XMStoreFloat2A(v, V); };

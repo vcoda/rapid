@@ -22,7 +22,6 @@ namespace rapid
         vector dot(const vector4& v) { return XMPlaneDot(P, v.V); }
         vector dotNormal(const vector3& n) { return XMPlaneDotNormal(P, n.V); }
         vector distance(const vector3& p) { return XMPlaneDotCoord(P, p.V); }
-
         void normalizeEst() { P = XMPlaneNormalizeEst(P); }
         plane normalizedEst() const { return XMPlaneNormalizeEst(P); }
         void normalize() { P = XMPlaneNormalize(P); }

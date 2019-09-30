@@ -14,7 +14,7 @@ namespace rapid
         vector4(const float3a& v, float w): vector(XMLoadFloat3A(&v)) { V = XMVectorSetW(V, w); }
         vector4(const float4& v): vector(XMLoadFloat4(&v)) {}
         vector4(const float4a& v): vector(XMLoadFloat4A(&v)) {}
-        
+
         vector4 operator+(const vector4& v) const { return XMVectorAdd(V, v.V); }
         vector4 operator-(const vector4& v) const { return XMVectorSubtract(V, v.V); }
         vector4 operator*(const vector4& v) const { return XMVectorMultiply(V, v.V); }

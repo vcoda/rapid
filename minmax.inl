@@ -1,13 +1,13 @@
 namespace rapid
 {
-    template<typename T> 
+    template<typename T>
     inline T min(const T& a, const T& b)
         { return a < b ? a : b; }
-    template<typename T> 
+    template<typename T>
     inline T max(const T& a, const T& b)
         { return a > b ? a : b; }
 
-    template<typename T> 
+    template<typename T>
     inline T min2(const T& a, const T& b)
     {
         T c{min(a.x, b.x),
@@ -15,15 +15,15 @@ namespace rapid
         return c;
     }
 
-    template<typename T> 
+    template<typename T>
     inline T max2(const T& a, const T& b)
     {
-        T c{max(a.x, b.x), 
+        T c{max(a.x, b.x),
             max(a.y, b.y)};
         return c;
     }
 
-    template<typename T> 
+    template<typename T>
     inline T min3(const T& a, const T& b)
     {
         T c{min(a.x, b.x),
@@ -32,7 +32,7 @@ namespace rapid
         return c;
     }
 
-    template<typename T> 
+    template<typename T>
     inline T max3(const T& a, const T& b)
     {
         T c{max(a.x, b.x),
@@ -41,9 +41,9 @@ namespace rapid
         return c;
     }
 
-    template<typename T> 
+    template<typename T>
     inline T min4(const T& a, const T& b)
-    {   
+    {
         T c{min(a.x, b.x),
             min(a.y, b.y),
             min(a.z, b.z),
@@ -51,7 +51,7 @@ namespace rapid
         return c;
     }
 
-    template<typename T> 
+    template<typename T>
     inline T max4(const T& a, const T& b)
     {
         T c{max(a.x, b.x),

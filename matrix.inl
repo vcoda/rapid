@@ -1,25 +1,25 @@
 namespace rapid
 {
-    inline matrix::matrix(const quaternion& q): 
+    inline matrix::matrix(const quaternion& q):
         XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
 
-    inline matrix transpose(const matrix& m) 
+    inline matrix transpose(const matrix& m)
         { return XMMatrixTranspose(m); }
-    inline matrix inverse(const matrix& m) 
+    inline matrix inverse(const matrix& m)
         { vector det; return XMMatrixInverse(&det.V, m); }
-    inline matrix inverse(vector *det, const matrix& m) 
+    inline matrix inverse(vector *det, const matrix& m)
         { return XMMatrixInverse(&det->V, m); }
 
     inline matrix identity() { return XMMatrixIdentity(); }
-    inline matrix translation(float offsetX, float offsetY, float offsetZ) 
+    inline matrix translation(float offsetX, float offsetY, float offsetZ)
         { return XMMatrixTranslation(offsetX, offsetY, offsetZ); }
     inline matrix translation(const vector& offset)
         { return XMMatrixTranslationFromVector(offset); }
-    inline matrix scaling(float scaleX, float scaleY, float scaleZ) 
+    inline matrix scaling(float scaleX, float scaleY, float scaleZ)
         { return XMMatrixScaling(scaleX, scaleY, scaleZ); }
-    inline matrix scaling(const vector& scale) 
+    inline matrix scaling(const vector& scale)
         { return XMMatrixScalingFromVector(scale); }
-    inline matrix rotationX(float angle) 
+    inline matrix rotationX(float angle)
         { return XMMatrixRotationX(angle); }
     inline matrix rotationY(float angle)
         { return XMMatrixRotationY(angle); }
@@ -42,7 +42,7 @@ namespace rapid
         { return XMMatrixPerspectiveLH(viewWidth, viewHeight, nearZ, farZ); }
     inline matrix perspectiveRH(float viewWidth, float viewHeight, float nearZ, float farZ)
         { return XMMatrixPerspectiveRH(viewWidth, viewHeight, nearZ, farZ); }
-    inline matrix perspectiveFovLH(float fovAngleY, float aspectRatio, float nearZ, float farZ) 
+    inline matrix perspectiveFovLH(float fovAngleY, float aspectRatio, float nearZ, float farZ)
         { return XMMatrixPerspectiveFovLH(fovAngleY, aspectRatio, nearZ, farZ); }
     inline matrix perspectiveFovRH(float fovAngleY, float aspectRatio, float nearZ, float farZ)
         { return XMMatrixPerspectiveFovRH(fovAngleY, aspectRatio, nearZ, farZ); }
