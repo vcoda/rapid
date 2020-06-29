@@ -1,5 +1,26 @@
 namespace rapid
 {
+    inline matrix::matrix(float _00, float _01,
+        float _10, float _11):
+        XMMATRIX(_00, _01, 0.f, 0.f,
+                 _10, _11, 0.f, 0.f,
+                 0.f, 0.f, 1.f, 0.f,
+                 0.f, 0.f, 0.f, 1.f) {}
+    inline matrix::matrix(float _00, float _01, float _02,
+        float _10, float _11, float _12,
+        float _20, float _21, float _22):
+        XMMATRIX(_00, _01, _02, 0.f,
+                 _10, _11, _12, 0.f,
+                 _20, _21, _22, 0.f,
+                 0.f, 0.f, 0.f, 1.f) {}
+    inline matrix::matrix(float _00, float _01, float _02, float _03,
+        float _10, float _11, float _12, float _13,
+        float _20, float _21, float _22, float _23,
+        float _30, float _31, float _32, float _33):
+        XMMATRIX(_00, _01, _02, _03,
+                 _10, _11, _12, _13,
+                 _20, _21, _22, _23,
+                 _30, _31, _32, _33) {}
     inline matrix::matrix(const quaternion& q):
         XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
 
