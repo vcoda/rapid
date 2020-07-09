@@ -27,11 +27,16 @@ namespace rapid
 
     namespace constants
     {
-        constexpr float pi = 3.14159265358979323846f;
-        constexpr float two_pi = 2.f * pi;
-        constexpr float half_pi = pi / 2.f;
-        constexpr float fourth_pi = pi / 4.f;
-        constexpr float eps = 1e-6f;
+        constexpr float exp = 2.718281828f;
+        constexpr float pi = XM_PI;
+        constexpr float twoPi = XM_2PI;
+        constexpr float invPi = XM_1DIVPI;
+        constexpr float invTwoPi = XM_1DIV2PI;
+        constexpr float halfPi = XM_PIDIV2;
+        constexpr float fourthPi = XM_PIDIV4;
+        constexpr float sqrtTwo = 1.414213562f;
+        constexpr float invSqrtTwo = 0.707106781f;
+        constexpr float epsilon = 1e-6f;
     } // namespace constants
 } // namespace rapid
 
