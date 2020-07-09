@@ -52,11 +52,4 @@ namespace rapid
 #include "quaternion.inl"
 #include "sincos.inl"
 #include "minmax.inl"
-
-namespace rapid
-{
-    inline constexpr float radians(const float degrees)
-        { return XMConvertToRadians(degrees); }
-    inline constexpr float degrees(const float radians)
-        { return XMConvertToDegrees(radians); }
-} // namespace rapid
+#include "misc.inl"
