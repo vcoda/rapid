@@ -7,6 +7,7 @@ namespace rapid
 
         plane() {}
         plane(FXMVECTOR p): P(p) {}
+        plane(float x, float y, float z, float d): P(XMVectorSet(x, y, z, d)) {}
         plane(const vector3& p, const vector3& n): P(XMPlaneFromPointNormal(p.V, n.V)) {}
         plane(const vector3& p1, const vector3& p2, const vector3& p3): P(XMPlaneFromPoints(p1.V, p2.V, p3.V)) {}
 
