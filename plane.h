@@ -30,5 +30,8 @@ namespace rapid
 
         vector intersectLine(const vector3& p1, const vector3& p2) { return XMPlaneIntersectLine(P, p1.V, p2.V); }
         void intersectPlane(const plane& p, vector3 *p1, vector3 *p2) { XMPlaneIntersectPlane(&p1->V, &p2->V, P, p.P); }
+
+        void store(float4 *v) const { XMStoreFloat4(v, P); };
+        void store(float4a *v) const { XMStoreFloat4A(v, P); };
     };
 } // namespace rapid
