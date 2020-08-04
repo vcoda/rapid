@@ -11,7 +11,8 @@ namespace rapid
         plane(const vector3& p, const vector3& n): P(XMPlaneFromPointNormal(p.V, n.V)) {}
         plane(const vector3& p1, const vector3& p2, const vector3& p3): P(XMPlaneFromPoints(p1.V, p2.V, p3.V)) {}
 
-        plane operator*(const matrix& m) { return XMPlaneTransform(P, m); }
+        plane operator*(const matrix& m) const { return XMPlaneTransform(P, m); }
+        const plane& operator*=(const matrix& m) { P = XMPlaneTransform(P, m); return *this; }
 
         bool operator==(const plane& p) const { return XMPlaneEqual(P, p.P); }
         bool nearEqual(const plane& p, const vector& eps) const { return XMPlaneNearEqual(P, p.P, eps); }
