@@ -32,8 +32,10 @@ namespace rapid
         { return XMMatrixInverse(&det->V, m); }
 
     inline matrix identity() { return XMMatrixIdentity(); }
-    inline matrix translation(float offsetX, float offsetY, float offsetZ)
-        { return XMMatrixTranslation(offsetX, offsetY, offsetZ); }
+    inline matrix translation(float x, float y)
+        { return XMMatrixTranslation(x, y, 0.f); }
+    inline matrix translation(float x, float y, float z)
+        { return XMMatrixTranslation(x, y, z); }
     inline matrix translation(const vector& offset)
         { return XMMatrixTranslationFromVector(offset); }
     inline matrix scaling(float scaleX, float scaleY, float scaleZ)
