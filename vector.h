@@ -24,11 +24,11 @@ namespace rapid
         float x() const { return XMVectorGetX(V); }
 
         void zero() { V = XMVectorZero(); }
-        void splatOne() { V = XMVectorSplatOne(); }
-        void splatInfinity() { V = XMVectorSplatInfinity(); }
-        void splatQNaN() { V = XMVectorSplatQNaN(); }
-        void splatEpsilon() { V = XMVectorSplatEpsilon(); }
-        void splatSignMask() { V = XMVectorSplatSignMask(); }
+        void one() { V = XMVectorSplatOne(); }
+        void infinity() { V = XMVectorSplatInfinity(); }
+        void qNan() { V = XMVectorSplatQNaN(); }
+        void epsilon() { V = XMVectorSplatEpsilon(); }
+        void signMask() { V = XMVectorSplatSignMask(); }
 
         operator XMVECTOR() const { return V; }
         operator float() const { float s; XMStoreFloat(&s, V); return s; }
