@@ -45,6 +45,9 @@ namespace rapid
         bool nan() const { return XMVector3IsNaN(V); }
         bool infinite() const { return XMVector3IsInfinite(V); }
 
+        vector sum() const { return XMVector3Dot(V, XMVectorSet(1.f, 1.f, 1.f, 0.f)); }
+        vector sumAbs() const { return XMVector3Dot(XMVectorAbs(V), XMVectorSet(1.f, 1.f, 1.f, 0.f)); }
+
         vector dot(const vector3& v) const { return XMVector3Dot(V, v.V); }
         vector3 cross(const vector3& v) const { return XMVector3Cross(V, v.V); }
         vector lengthSq() const { return XMVector3LengthSq(V); }
