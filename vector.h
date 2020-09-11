@@ -5,35 +5,35 @@ namespace rapid
     public:
         XMVECTOR V;
 
-        vector() {}
-        vector(FXMVECTOR v): V(v) {}
-        vector(const float x): V(XMVectorReplicate(x)) {}
-        vector(const float x, const float y): V(XMVectorSet(x, y, 0.f, 1.f)) {}
-        vector(const float x, const float y, const float z): V(XMVectorSet(x, y, z, 1.f)) {}
-        vector(const float x, const float y, const float z, const float w): V(XMVectorSet(x, y, z, w)) {}
+        vector() noexcept {}
+        vector(FXMVECTOR v) noexcept: V(v) {}
+        vector(const float x) noexcept: V(XMVectorReplicate(x)) {}
+        vector(const float x, const float y) noexcept: V(XMVectorSet(x, y, 0.f, 1.f)) {}
+        vector(const float x, const float y, const float z) noexcept: V(XMVectorSet(x, y, z, 1.f)) {}
+        vector(const float x, const float y, const float z, const float w) noexcept: V(XMVectorSet(x, y, z, w)) {}
 
-        const vector& operator+() const { return *this; }
-        vector operator-() const { return XMVectorNegate(V); }
-        vector operator+(const vector& v) const { return XMVectorAdd(V, v.V); }
-        vector operator-(const vector& v) const { return XMVectorSubtract(V, v.V); }
-        vector operator*(const vector& v) const { return XMVectorMultiply(V, v.V); }
-        vector operator*(const float s) const { return XMVectorScale(V, s); }
-        vector operator/(const vector& v) const { return XMVectorDivide(V, v.V); }
-        vector operator/(const float s) const { return XMVectorScale(V, 1.f/s); }
+        const vector& operator+() const noexcept { return *this; }
+        vector operator-() const noexcept { return XMVectorNegate(V); }
+        vector operator+(const vector& v) const noexcept { return XMVectorAdd(V, v.V); }
+        vector operator-(const vector& v) const noexcept { return XMVectorSubtract(V, v.V); }
+        vector operator*(const vector& v) const noexcept { return XMVectorMultiply(V, v.V); }
+        vector operator*(const float s) const noexcept { return XMVectorScale(V, s); }
+        vector operator/(const vector& v) const noexcept { return XMVectorDivide(V, v.V); }
+        vector operator/(const float s) const noexcept { return XMVectorScale(V, 1.f/s); }
 
-        float x() const { return XMVectorGetX(V); }
+        float x() const noexcept { return XMVectorGetX(V); }
 
-        void zero() { V = XMVectorZero(); }
-        void one() { V = XMVectorSplatOne(); }
-        void infinity() { V = XMVectorSplatInfinity(); }
-        void qNan() { V = XMVectorSplatQNaN(); }
-        void epsilon() { V = XMVectorSplatEpsilon(); }
-        void signMask() { V = XMVectorSplatSignMask(); }
+        void zero() noexcept { V = XMVectorZero(); }
+        void one() noexcept { V = XMVectorSplatOne(); }
+        void infinity() noexcept { V = XMVectorSplatInfinity(); }
+        void qNan() noexcept { V = XMVectorSplatQNaN(); }
+        void epsilon() noexcept { V = XMVectorSplatEpsilon(); }
+        void signMask() noexcept { V = XMVectorSplatSignMask(); }
 
-        operator XMVECTOR() const { return V; }
-        operator float() const { float s; XMStoreFloat(&s, V); return s; }
+        operator XMVECTOR() const noexcept { return V; }
+        operator float() const noexcept { float s; XMStoreFloat(&s, V); return s; }
     };
 
-    inline vector operator*(float s, const vector& v) { return v * s; }
-    inline vector operator/(float s, const vector& v) { return vector(s)/v; }
+    inline vector operator*(float s, const vector& v) noexcept { return v * s; }
+    inline vector operator/(float s, const vector& v) noexcept { return vector(s)/v; }
 } // namespace rapid

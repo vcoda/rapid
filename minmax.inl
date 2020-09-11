@@ -1,14 +1,14 @@
 namespace rapid
 {
     template<typename T>
-    inline T min(const T& a, const T& b)
+    inline T min(const T& a, const T& b) noexcept
         { return a < b ? a : b; }
     template<typename T>
-    inline T max(const T& a, const T& b)
+    inline T max(const T& a, const T& b) noexcept
         { return a > b ? a : b; }
 
     template<typename T>
-    inline T min2(const T& a, const T& b)
+    inline T min2(const T& a, const T& b) noexcept
     {
         T c{min(a.x, b.x),
             min(a.y, b.y)};
@@ -16,7 +16,7 @@ namespace rapid
     }
 
     template<typename T>
-    inline T max2(const T& a, const T& b)
+    inline T max2(const T& a, const T& b) noexcept
     {
         T c{max(a.x, b.x),
             max(a.y, b.y)};
@@ -24,7 +24,7 @@ namespace rapid
     }
 
     template<typename T>
-    inline T min3(const T& a, const T& b)
+    inline T min3(const T& a, const T& b) noexcept
     {
         T c{min(a.x, b.x),
             min(a.y, b.y),
@@ -33,7 +33,7 @@ namespace rapid
     }
 
     template<typename T>
-    inline T max3(const T& a, const T& b)
+    inline T max3(const T& a, const T& b) noexcept
     {
         T c{max(a.x, b.x),
             max(a.y, b.y),
@@ -42,7 +42,7 @@ namespace rapid
     }
 
     template<typename T>
-    inline T min4(const T& a, const T& b)
+    inline T min4(const T& a, const T& b) noexcept
     {
         T c{min(a.x, b.x),
             min(a.y, b.y),
@@ -52,7 +52,7 @@ namespace rapid
     }
 
     template<typename T>
-    inline T max4(const T& a, const T& b)
+    inline T max4(const T& a, const T& b) noexcept
     {
         T c{max(a.x, b.x),
             max(a.y, b.y),

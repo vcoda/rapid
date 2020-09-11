@@ -1,8 +1,8 @@
 namespace rapid
 {
-    inline constexpr float radians(const float degrees)
+    inline constexpr float radians(const float degrees) noexcept
         { return XMConvertToRadians(degrees); }
-    inline constexpr float degrees(const float radians)
+    inline constexpr float degrees(const float radians) noexcept
         { return XMConvertToDegrees(radians); }
 
     inline constexpr float sign(const float x) noexcept
@@ -19,7 +19,7 @@ namespace rapid
     // [a1,a2] and [b1,b2];
     // then a value s in range [a1,a2]
     // is linearly mapped to a value t in range[b1,b2]
-    inline constexpr float mapRange(float a1, float a2, float s, float b1, float b2)
+    inline constexpr float mapRange(float a1, float a2, float s, float b1, float b2) noexcept
     {
         float t = b1 + (s - a1) * (b2 - b1)/(a2 - a1);
         return t;
