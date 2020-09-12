@@ -1,9 +1,9 @@
 namespace rapid
 {
-    inline vector splatx(const vector& v) noexcept { return XMVectorSplatX(v.V); }
-    inline vector splaty(const vector& v) noexcept { return XMVectorSplatY(v.V); }
-    inline vector splatz(const vector& v) noexcept { return XMVectorSplatZ(v.V); }
-    inline vector splatw(const vector& v) noexcept { return XMVectorSplatW(v.V); }
+    inline vector splatX(const vector& v) noexcept { return XMVectorSplatX(v.V); }
+    inline vector splatY(const vector& v) noexcept { return XMVectorSplatY(v.V); }
+    inline vector splatZ(const vector& v) noexcept { return XMVectorSplatZ(v.V); }
+    inline vector splatW(const vector& v) noexcept { return XMVectorSplatW(v.V); }
 
     inline vector sum(const vector& v) noexcept { return XMVectorSum(v.V); }
     inline vector madd(const vector& v1, const vector& v2, const vector& v3) noexcept { return XMVectorMultiplyAdd(v1.V, v2.V, v3.V); }
