@@ -53,6 +53,11 @@ namespace rapid
     inline matrix rotationAxis(const vector3& axis, float angle) noexcept
         { return XMMatrixRotationAxis(axis, angle); }
 
+    inline matrix affine(const vector& scaling, const vector& rotationOrigin, float rotation, const vector& translation) noexcept
+        { return XMMatrixAffineTransformation2D(scaling, rotationOrigin, rotation, translation); }
+    inline matrix affine(const vector& scaling, const vector& rotationOrigin, const quaternion& rotation, const vector& translation) noexcept
+        { return XMMatrixAffineTransformation(scaling, rotationOrigin, rotation, translation); }
+
     inline matrix lookAtLH(const vector& eyePosition, const vector& focusPosition, const vector& upDirection) noexcept
         { return XMMatrixLookAtLH(eyePosition, focusPosition, upDirection); }
     inline matrix lookAtRH(const vector& eyePosition, const vector& focusPosition, const vector& upDirection) noexcept
