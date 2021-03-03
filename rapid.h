@@ -25,6 +25,12 @@ namespace rapid
     typedef XMINT4 int4;
     typedef XMUINT4 uint4;
 
+    union flint
+    {
+        int i;
+        float f;
+    };
+
     namespace constants
     {
         constexpr float exp = 2.718281828f;
@@ -51,5 +57,6 @@ namespace rapid
 #include "matrix.inl"
 #include "quaternion.inl"
 #include "sincos.inl"
+#include "sqrt.inl"
 #include "minmax.inl"
 #include "misc.inl"
