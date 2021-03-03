@@ -26,6 +26,7 @@ namespace rapid
         bool unit() const noexcept { return XMMatrixIsIdentity(*this); }
 
         void identity() noexcept { *this = XMMatrixIdentity(); }
+        float inverse() noexcept;
         vector determinant() const noexcept { return XMMatrixDeterminant(*this); }
     };
 } // namespace rapid

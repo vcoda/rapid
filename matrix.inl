@@ -23,7 +23,14 @@ namespace rapid
                  _30, _31, _32, _33) {}
     inline matrix::matrix(const quaternion& q) noexcept:
         XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
-
+    inline float matrix::inverse() noexcept
+    {
+        vector d; 
+        *this = XMMatrixInverse(&d.V, *this);
+        float determinant;
+        XMStoreFloat(&determinant, d);
+        return determinant;
+    }
     inline matrix transpose(const matrix& m) noexcept
         { return XMMatrixTranspose(m); }
     inline matrix inverse(const matrix& m) noexcept
