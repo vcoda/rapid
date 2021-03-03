@@ -20,6 +20,7 @@ namespace rapid
         vector2 operator*(const vector2& v) const noexcept { return XMVector2Transform(v.V, *this); }
         vector3 operator*(const vector3& v) const noexcept { return XMVector3Transform(v.V, *this); }
         vector4 operator*(const vector4& v) const noexcept { return XMVector4Transform(v.V, *this); }
+        matrix operator~() const noexcept { return XMMatrixInverse(nullptr, *this); }
 
         bool nan() const noexcept { return XMMatrixIsNaN(*this); }
         bool infinite() const noexcept { return XMMatrixIsInfinite(*this); }
