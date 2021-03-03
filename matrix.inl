@@ -33,11 +33,13 @@ namespace rapid
     }
     inline matrix transpose(const matrix& m) noexcept
         { return XMMatrixTranspose(m); }
-    inline matrix inverse(const matrix& m) noexcept
-        { vector det; return XMMatrixInverse(&det.V, m); }
-    inline matrix inverse(vector *det, const matrix& m) noexcept
-        { return XMMatrixInverse(&det->V, m); }
-
+    inline matrix inverse(const matrix& m, float *determinant = nullptr) noexcept
+    { 
+        vector d; 
+        matrix inv = XMMatrixInverse(determinant ? &d.V : nullptr, m);
+        if (determinant) XMStoreFloat(determinant, d);
+        return inv;
+    }
     inline matrix identity() noexcept { return XMMatrixIdentity(); }
     inline matrix translation(float x, float y) noexcept
         { return XMMatrixTranslation(x, y, 0.f); }
