@@ -2,11 +2,13 @@
 #include "platform.h"
 #ifdef _MSC_VER
 #define _XM_AVX_INTRINSICS_
+#define _XM_F16C_INTRINSICS_
 #else
 #define _XM_NO_INTRINSICS_
 #define _XM_NO_XMVECTOR_OVERLOADS_
 #endif
 #include "DirectXMath/Inc/DirectXMath.h"
+#include "DirectXMath/Inc/DirectXPackedVector.h"
 
 using namespace DirectX;
 
@@ -24,6 +26,10 @@ namespace rapid
     typedef XMFLOAT4A float4a;
     typedef XMINT4 int4;
     typedef XMUINT4 uint4;
+
+    typedef PackedVector::HALF half;
+    typedef PackedVector::XMHALF2 half2;
+    typedef PackedVector::XMHALF4 half4;
 
     union flint
     {
@@ -59,4 +65,5 @@ namespace rapid
 #include "sincos.inl"
 #include "sqrt.inl"
 #include "minmax.inl"
+#include "half.inl"
 #include "misc.inl"
