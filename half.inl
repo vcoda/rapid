@@ -23,8 +23,8 @@ namespace rapid
         return hv;
     }
 
-    inline float *htof(float *out, const half *in, size_t count) noexcept
+    inline float *htof(float *out, const half *in, const size_t count) noexcept
         { return PackedVector::XMConvertHalfToFloatStream(out, sizeof(float), in, sizeof(half), count); }
-    inline half *ftoh(half *out, const float *in, size_t count) noexcept
+    inline half *ftoh(half *out, const float *in, const size_t count) noexcept
         { return PackedVector::XMConvertFloatToHalfStream(out, sizeof(half), in, sizeof(float), count); }
 } // namespace rapid

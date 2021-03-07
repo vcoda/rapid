@@ -39,7 +39,7 @@ namespace rapid
         void inverse() noexcept { Q = XMQuaternionInverse(Q); }
         quaternion inversed() const noexcept { return XMQuaternionInverse(Q); }
 
-        void pitchYawRoll(float pitch, float yaw, float roll) noexcept { Q = XMQuaternionRotationRollPitchYaw(pitch, yaw, roll); }
+        void pitchYawRoll(const float pitch, const float yaw, const float roll) noexcept { Q = XMQuaternionRotationRollPitchYaw(pitch, yaw, roll); }
         void pitchYawRoll(const vector& angles) noexcept { Q = XMQuaternionRotationRollPitchYawFromVector(angles); }
         void fromAxisAngle(const vector3& axis, float angle) noexcept { Q = XMQuaternionRotationAxis(axis, angle); }
         vector3 toAxisAngle(float& angle) const noexcept { XMVECTOR axis; XMQuaternionToAxisAngle(&axis, &angle, Q); return axis; }

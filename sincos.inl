@@ -1,23 +1,23 @@
 namespace rapid
 {
-    inline float sin(float x) noexcept
+    inline float sin(const float x) noexcept
         { return XMScalarSin(x); }
-    inline float sinEst(float x) noexcept
+    inline float sinEst(const float x) noexcept
         { return XMScalarSinEst(x); }
-    inline float cos(float x) noexcept
+    inline float cos(const float x) noexcept
         { return XMScalarCos(x); }
-    inline float cosEst(float x) noexcept
+    inline float cosEst(const float x) noexcept
         { return XMScalarCosEst(x); }
-    inline void sincos(float *psin, float *pcos, float x) noexcept
+    inline void sincos(float *psin, float *pcos, const float x) noexcept
         { XMScalarSinCos(psin, pcos, x); }
-    inline void sincosEst(float *psin, float *pcos, float x) noexcept
+    inline void sincosEst(float *psin, float *pcos, const float x) noexcept
         { XMScalarSinCosEst(psin, pcos, x); }
-    inline float asin(float x) noexcept
+    inline float asin(const float x) noexcept
         { return XMScalarASin(x); }
-    inline float asinEst(float x) noexcept
+    inline float asinEst(const float x) noexcept
         { return XMScalarASinEst(x); }
-    inline float acos(float x) noexcept
+    inline float acos(const float x) noexcept
         { return XMScalarACos(x); }
-    inline float acosEst(float x) noexcept
+    inline float acosEst(const float x) noexcept
         { return XMScalarACosEst(x); }
 } // namespace rapid
