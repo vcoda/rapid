@@ -14,6 +14,7 @@ namespace rapid
             float _10, float _11, float _12, float _13,
             float _20, float _21, float _22, float _23,
             float _30, float _31, float _32, float _33) noexcept;
+        matrix(const float scale, const float3& translation) noexcept;
         matrix(const class quaternion& q) noexcept;
 
         matrix operator*(const matrix& m) const noexcept { return XMMatrixMultiply(*this, m); }

@@ -21,6 +21,11 @@ namespace rapid
                  _10, _11, _12, _13,
                  _20, _21, _22, _23,
                  _30, _31, _32, _33) {}
+    inline matrix::matrix(const float scale, const float3& translation) noexcept:
+        XMMATRIX(scale, 0.f, 0.f, 0.f,
+                 0.f, scale, 0.f, 0.f,
+                 0.f, 0.f, scale, 0.f,
+                 translation.x, translation.y, translation.z, 1.f) {}
     inline matrix::matrix(const quaternion& q) noexcept:
         XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
     inline float matrix::inverse() noexcept
@@ -31,6 +36,7 @@ namespace rapid
         XMStoreFloat(&determinant, d);
         return determinant;
     }
+
     inline matrix transpose(const matrix& m) noexcept
         { return XMMatrixTranspose(m); }
     inline matrix inverse(const matrix& m, float *determinant = nullptr) noexcept
