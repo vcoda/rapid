@@ -7,7 +7,7 @@ namespace rapid
 
         plane() noexcept {}
         plane(FXMVECTOR p) noexcept: P(p) {}
-        plane(float x, float y, float z, float d) noexcept: P(XMVectorSet(x, y, z, d)) {}
+        plane(const float x, const float y, const float z, const float d) noexcept: P(XMVectorSet(x, y, z, d)) {}
         plane(const vector3& p, const vector3& n) noexcept: P(XMPlaneFromPointNormal(p.V, n.V)) {}
         plane(const vector3& p1, const vector3& p2, const vector3& p3) noexcept: P(XMPlaneFromPoints(p1.V, p2.V, p3.V)) {}
 
