@@ -31,6 +31,12 @@ namespace rapid
     typedef PackedVector::XMHALF2 half2;
     typedef PackedVector::XMHALF4 half4;
 
+    typedef XMFLOAT3X3 float3x3;
+    typedef XMFLOAT4X3 float4x3;
+    typedef XMFLOAT4X3A float4x3a;
+    typedef XMFLOAT4X4 float4x4;
+    typedef XMFLOAT4X4A float4x4a;
+
     union flint
     {
         int i;
