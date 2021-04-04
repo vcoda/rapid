@@ -28,6 +28,7 @@ namespace rapid
                  translation.x, translation.y, translation.z, 1.f) {}
     inline matrix::matrix(const quaternion& q) noexcept:
         XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
+
     inline float matrix::inverse() noexcept
     {
         vector d; 
@@ -35,6 +36,15 @@ namespace rapid
         float determinant;
         XMStoreFloat(&determinant, d);
         return determinant;
+    }
+
+    inline void matrix::store3x4(float m[3][4]) const noexcept
+    {
+        float4x3a m4x3;
+        XMStoreFloat4x3A(&m4x3, *this);
+        for (size_t i = 0; i < 3; ++i)
+            for (size_t j = 0; j < 4; ++j)
+                m[i][j] = m4x3(j, i);
     }
 
     inline matrix transpose(const matrix& m) noexcept

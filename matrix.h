@@ -30,5 +30,12 @@ namespace rapid
         void identity() noexcept { *this = XMMatrixIdentity(); }
         float inverse() noexcept;
         vector determinant() const noexcept { return XMMatrixDeterminant(*this); }
+
+        void store(float3x3 *m) const noexcept { XMStoreFloat3x3(m, *this); }
+        void store(float4x3 *m) const noexcept { XMStoreFloat4x3(m, *this); }
+        void store(float4x3a *m) const noexcept { XMStoreFloat4x3A(m, *this); }
+        void store(float4x4 *m) const noexcept { XMStoreFloat4x4(m, *this); }
+        void store(float4x4a *m) const noexcept { XMStoreFloat4x4A(m, *this); }
+        void store3x4(float m[3][4]) const noexcept;
     };
 } // namespace rapid
