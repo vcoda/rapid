@@ -1,4 +1,6 @@
 // stub sal.h for GNU C
+#ifndef __SAL_H_VERSION
+
 #define _In_
 #define _In_opt_
 #define _In_reads_(size)
@@ -13,3 +15,5 @@
 
 #define _Success_(expr)
 #define _Analysis_assume_(expr)
+
+#endif // __SAL_H_VERSION
