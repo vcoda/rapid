@@ -42,7 +42,10 @@ namespace rapid
 
         bool nan() const noexcept { return XMVector2IsNaN(V); }
         bool infinite() const noexcept { return XMVector2IsInfinite(V); }
-
+        bool unit() const noexcept {
+            XMVECTOR v = XMVectorSubtract(g_XMOne, XMVector2Dot(V, V));
+            return XMVector2LessOrEqual(XMVectorAbs(v), g_XMEpsilon);
+        }
         vector sum() const noexcept { return XMVector2Dot(V, XMVectorSet(1.f, 1.f, 0.f, 0.f)); }
         vector sumAbs() const noexcept { return XMVector2Dot(XMVectorAbs(V), XMVectorSet(1.f, 1.f, 0.f, 0.f)); }
 
