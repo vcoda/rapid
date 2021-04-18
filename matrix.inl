@@ -49,13 +49,6 @@ namespace rapid
 
     inline matrix transpose(const matrix& m) noexcept
         { return XMMatrixTranspose(m); }
-    inline matrix inverse(const matrix& m, float *determinant = nullptr) noexcept
-    { 
-        vector d; 
-        matrix inv = XMMatrixInverse(determinant ? &d.V : nullptr, m);
-        if (determinant) XMStoreFloat(determinant, d);
-        return inv;
-    }
     inline matrix identity() noexcept { return XMMatrixIdentity(); }
     inline matrix translation(float x, float y) noexcept
         { return XMMatrixTranslation(x, y, 0.f); }
@@ -99,4 +92,13 @@ namespace rapid
         { return XMMatrixPerspectiveFovLH(fovAngleY, aspectRatio, nearZ, farZ); }
     inline matrix perspectiveFovRH(float fovAngleY, float aspectRatio, float nearZ, float farZ) noexcept
         { return XMMatrixPerspectiveFovRH(fovAngleY, aspectRatio, nearZ, farZ); }
+
+    inline matrix inverse(const matrix& m, float *determinant = nullptr) noexcept
+    {
+        vector d;
+        matrix inv = XMMatrixInverse(determinant ? &d.V : nullptr, m);
+        if (determinant) XMStoreFloat(determinant, d);
+        return inv;
+    }
+
 } // namespace rapid
