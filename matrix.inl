@@ -101,4 +101,17 @@ namespace rapid
         return inv;
     }
 
+    // Assuming your matrix multiplication follows the convention: M = (S * R * T)
+    // (where M is your composed matrix, T is a Translation matrix, R rotation, S scale),
+    // then we can normalize the first three rows of the matrix to get just the T * R part.
+    // https://gamedev.stackexchange.com/questions/119702/fastest-way-to-neutralize-scale-in-the-transform-matrix
+    inline matrix excludeNonUniformScaling(const rapid::matrix& m)
+    {
+        rapid::matrix uniform;
+        uniform.r[0] = XMVector3Normalize(m.r[0]);
+        uniform.r[1] = XMVector3Normalize(m.r[1]);
+        uniform.r[2] = XMVector3Normalize(m.r[2]);
+        uniform.r[3] = m.r[3];
+        return uniform;
+    }
 } // namespace rapid
