@@ -39,6 +39,7 @@ namespace rapid
         bool operator<=(const vector2& v) const noexcept { return XMVector2LessOrEqual(V, v.V); }
 
         float y() const noexcept { return XMVectorGetY(V); }
+        #include "swizzling/vector2.inl"
 
         bool nan() const noexcept { return XMVector2IsNaN(V); }
         bool infinite() const noexcept { return XMVector2IsInfinite(V); }
