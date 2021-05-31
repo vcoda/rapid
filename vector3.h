@@ -41,6 +41,7 @@ namespace rapid
 
         float y() const noexcept { return XMVectorGetY(V); }
         float z() const noexcept { return XMVectorGetZ(V); }
+        #include "swizzling/vector2.inl"
         #include "swizzling/vector3.inl"
 
         bool nan() const noexcept { return XMVector3IsNaN(V); }
