@@ -38,6 +38,24 @@ namespace rapid
         return determinant;
     }
 
+    inline void matrix::store3x3(float m[3][3]) const noexcept
+    {
+        float3x3 m3x3;
+        XMStoreFloat3x3(&m3x3, *this);
+        for (size_t i = 0; i < 3; ++i)
+            for (size_t j = 0; j < 3; ++j)
+                m[i][j] = m3x3(i, j);
+    }
+
+    inline void matrix::store4x3(float m[4][3]) const noexcept
+    {
+        float4x3a m4x3;
+        XMStoreFloat4x3A(&m4x3, *this);
+        for (size_t i = 0; i < 4; ++i)
+            for (size_t j = 0; j < 3; ++j)
+                m[i][j] = m4x3(i, j);
+    }
+
     inline void matrix::store3x4(float m[3][4]) const noexcept
     {
         float4x3a m4x3;
@@ -45,6 +63,15 @@ namespace rapid
         for (size_t i = 0; i < 3; ++i)
             for (size_t j = 0; j < 4; ++j)
                 m[i][j] = m4x3(j, i);
+    }
+
+    inline void matrix::store4x4(float m[4][4]) const noexcept
+    {
+        float4x4a m4x4;
+        XMStoreFloat4x4A(&m4x4, *this);
+        for (size_t i = 0; i < 4; ++i)
+            for (size_t j = 0; j < 4; ++j)
+                m[i][j] = m4x4(i, j);
     }
 
     inline matrix transpose(const matrix& m) noexcept

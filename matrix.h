@@ -36,6 +36,9 @@ namespace rapid
         void store(float4x3a *m) const noexcept { XMStoreFloat4x3A(m, *this); }
         void store(float4x4 *m) const noexcept { XMStoreFloat4x4(m, *this); }
         void store(float4x4a *m) const noexcept { XMStoreFloat4x4A(m, *this); }
+        void store3x3(float m[3][3]) const noexcept;
+        void store4x3(float m[4][3]) const noexcept;
         void store3x4(float m[3][4]) const noexcept;
+        void store4x4(float m[4][4]) const noexcept;
     };
 } // namespace rapid
