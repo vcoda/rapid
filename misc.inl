@@ -56,7 +56,7 @@ namespace rapid
         x = ((x >> 2) & c2) + (x & c2);
         x = (x + (x >> 4)) & c4;
         x *= 0x01010101u;
-        return int64_t(x >> 24);
+        return int32_t(x >> 24);
     #endif;
     }
 #endif // _M_X64
