@@ -31,7 +31,7 @@ namespace rapid
 
     inline float matrix::inverse() noexcept
     {
-        vector d; 
+        vector d;
         *this = XMMatrixInverse(&d.V, *this);
         float determinant;
         XMStoreFloat(&determinant, d);
