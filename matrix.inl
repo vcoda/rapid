@@ -38,40 +38,45 @@ namespace rapid
         return determinant;
     }
 
-    inline void matrix::store3x3(float m[3][3]) const noexcept
+    template<int rows, int cols>
+    inline void matrix::store(float (&m)[rows][cols]) const noexcept
     {
-        float3x3 m3x3;
-        XMStoreFloat3x3(&m3x3, *this);
-        for (size_t i = 0; i < 3; ++i)
-            for (size_t j = 0; j < 3; ++j)
-                m[i][j] = m3x3(i, j);
+        static_assert((rows >= 3) && (rows <= 4), "invalid number of matrix rows");
+        static_assert((cols >= 3) && (cols <= 4), "invalid number of matrix columns");
     }
 
-    inline void matrix::store4x3(float m[4][3]) const noexcept
+    template<>
+    inline void matrix::store<3, 3>(float (&m)[3][3]) const noexcept
     {
-        float4x3a m4x3;
-        XMStoreFloat4x3A(&m4x3, *this);
-        for (size_t i = 0; i < 4; ++i)
-            for (size_t j = 0; j < 3; ++j)
-                m[i][j] = m4x3(i, j);
+        XMStoreFloat3x3(reinterpret_cast<float3x3 *>(m), *this);
     }
 
-    inline void matrix::store3x4(float m[3][4]) const noexcept
+    template<>
+    inline void matrix::store<3, 4>(float (&m)[3][4]) const noexcept
     {
-        float4x3a m4x3;
-        XMStoreFloat4x3A(&m4x3, *this);
+        float4x3a mat;
+        XMStoreFloat4x3A(&mat, *this);
         for (size_t i = 0; i < 3; ++i)
             for (size_t j = 0; j < 4; ++j)
-                m[i][j] = m4x3(j, i);
+                m[i][j] = mat(j, i);
     }
 
-    inline void matrix::store4x4(float m[4][4]) const noexcept
+    template<>
+    inline void matrix::store<4, 3>(float (&m)[4][3]) const noexcept
     {
-        float4x4a m4x4;
-        XMStoreFloat4x4A(&m4x4, *this);
-        for (size_t i = 0; i < 4; ++i)
-            for (size_t j = 0; j < 4; ++j)
-                m[i][j] = m4x4(i, j);
+        if (aligned(m))
+            XMStoreFloat4x3A(reinterpret_cast<float4x3a *>(m), *this);
+        else
+            XMStoreFloat4x3(reinterpret_cast<float4x3 *>(m), *this);
+    }
+
+    template<>
+    inline void matrix::store<4, 4>(float (&m)[4][4]) const noexcept
+    {
+        if (aligned(m))
+            XMStoreFloat4x4A(reinterpret_cast<float4x4a *>(m), *this);
+        else
+            XMStoreFloat4x4(reinterpret_cast<float4x4 *>(m), *this);
     }
 
     inline matrix transpose(const matrix& m) noexcept
