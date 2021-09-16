@@ -56,6 +56,11 @@ namespace rapid
         constexpr float invSqrtTwo = 0.707106781f;
         constexpr float epsilon = 1e-6f;
     } // namespace constants
+
+    inline bool aligned(const void *p) noexcept
+    {
+        return (reinterpret_cast<uintptr_t>(p) & 15ULL) == 0;
+    }
 } // namespace rapid
 
 #include "vector.h"
