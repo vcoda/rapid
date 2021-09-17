@@ -78,3 +78,4 @@ namespace rapid
 #include "minmax.inl"
 #include "half.inl"
 #include "misc.inl"
+#include "popcnt.inl"
