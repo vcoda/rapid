@@ -6,12 +6,16 @@ namespace rapid
         vector4() noexcept {}
         vector4(FXMVECTOR v) noexcept: vector(v) {}
         vector4(const vector& v) noexcept: vector(v) {}
-        vector4(const vector2& v, const float z, const float w) noexcept: vector(v.x(), v.y(), z, w) {}
-        vector4(const vector3& v, const float w) noexcept: vector(v) { V = XMVectorSetW(V, w); }
-        vector4(const float3& v, float w) noexcept: vector(XMLoadFloat3(&v)) { V = XMVectorSetW(V, w); }
-        vector4(const float3a& v, float w) noexcept: vector(XMLoadFloat3A(&v)) { V = XMVectorSetW(V, w); }
+        vector4(const float2& v) noexcept: vector(XMLoadFloat2(&v)) {}
+        vector4(const float2a& v) noexcept: vector(XMLoadFloat2A(&v)) {}
+        vector4(const float3& v) noexcept: vector(XMLoadFloat3(&v)) {}
+        vector4(const float3a& v) noexcept: vector(XMLoadFloat3A(&v)) {}
         vector4(const float4& v) noexcept: vector(XMLoadFloat4(&v)) {}
         vector4(const float4a& v) noexcept: vector(XMLoadFloat4A(&v)) {}
+        explicit vector4(const vector2& v, const float z, const float w) noexcept: vector(v.x(), v.y(), z, w) {}
+        explicit vector4(const vector3& v, const float w) noexcept: vector(v) { V = XMVectorSetW(V, w); }
+        explicit vector4(const float3& v, float w) noexcept: vector(XMLoadFloat3(&v)) { V = XMVectorSetW(V, w); }
+        explicit vector4(const float3a& v, float w) noexcept: vector(XMLoadFloat3A(&v)) { V = XMVectorSetW(V, w); }
         explicit vector4(const float x) noexcept: vector(x) {}
         explicit vector4(const float x, const float y, const float z, const float w) noexcept: vector(x, y, z, w) {}
 

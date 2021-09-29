@@ -6,9 +6,11 @@ namespace rapid
         vector3() {}
         vector3(FXMVECTOR v) noexcept: vector(v) {}
         vector3(const vector& v) noexcept: vector(v) {}
-        vector3(const vector2& v, const float z) noexcept: vector(v.x(), v.y(), z) {}
+        vector3(const float2& v) noexcept: vector(XMLoadFloat2(&v)) {}
+        vector3(const float2a& v) noexcept: vector(XMLoadFloat2A(&v)) {}
         vector3(const float3& v) noexcept: vector(XMLoadFloat3(&v)) {}
         vector3(const float3a& v) noexcept: vector(XMLoadFloat3A(&v)) {}
+        explicit vector3(const vector2& v, const float z) noexcept: vector(v.x(), v.y(), z) {}
         explicit vector3(const float x) noexcept: vector(x) {}
         explicit vector3(const float x, const float y, const float z) noexcept: vector(x, y, z) {}
 
