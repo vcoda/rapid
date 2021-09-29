@@ -27,7 +27,7 @@ namespace rapid
 
         vector dot(const quaternion& q) noexcept { return XMQuaternionDot(Q, q.Q); }
         vector lengthSq() const noexcept { return XMQuaternionLengthSq(Q); }
-        vector rcpLengthSq() const noexcept { return XMQuaternionReciprocalLength(Q); }
+        vector rcpLength() const noexcept { return XMQuaternionReciprocalLength(Q); }
         vector length() const noexcept { return XMQuaternionLength(Q); }
         void normalizeEst() noexcept { Q = XMQuaternionNormalizeEst(Q); }
         quaternion normalizedEst() const noexcept { return XMQuaternionNormalizeEst(Q); }
