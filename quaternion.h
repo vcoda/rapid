@@ -5,7 +5,7 @@ namespace rapid
     public:
         XMVECTOR Q;
 
-        quaternion() noexcept {}
+        quaternion() noexcept: Q(XMQuaternionIdentity()) {}
         quaternion(FXMVECTOR q) noexcept: Q(q) {}
         quaternion(const float x, const float y, const float z, const float w) noexcept: Q(XMVectorSet(x, y, z, w)) {}
         quaternion(const vector3& v, const float w) noexcept: Q(v) { Q = XMVectorSetW(Q, w); }
