@@ -29,8 +29,8 @@ namespace rapid
         void normalize() noexcept { P = XMPlaneNormalize(P); }
         plane normalized() const noexcept { return XMPlaneNormalize(P); }
 
-        vector intersectLine(const vector3& p1, const vector3& p2) noexcept { return XMPlaneIntersectLine(P, p1.V, p2.V); }
-        void intersectPlane(const plane& p, vector3 *p1, vector3 *p2) noexcept { XMPlaneIntersectPlane(&p1->V, &p2->V, P, p.P); }
+        vector intersectLine(const vector3& p1, const vector3& p2) const noexcept { return XMPlaneIntersectLine(P, p1.V, p2.V); }
+        void intersectPlane(const plane& p, vector3 *p1, vector3 *p2) const noexcept { XMPlaneIntersectPlane(&p1->V, &p2->V, P, p.P); }
 
         void store(float4 *v) const noexcept { XMStoreFloat4(v, P); };
         void store(float4a *v) const noexcept { XMStoreFloat4A(v, P); };
