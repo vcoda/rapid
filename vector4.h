@@ -68,8 +68,8 @@ namespace rapid
         vector4 normalizedEst() const noexcept { return XMVector4NormalizeEst(V); }
         void normalize() noexcept { V = XMVector4Normalize(V); }
         vector4 normalized() const noexcept { return XMVector4Normalize(V); }
-        vector4 clampLength(const float min, const float max) noexcept { return XMVector4ClampLength(V, min, max); }
-        vector4 clampLength(const vector4& min, const vector4& max) noexcept { return XMVector4ClampLengthV(V, min.V, max.V); }
+        void clampLength(const float min, const float max) noexcept { V = XMVector4ClampLength(V, min, max); }
+        void clampLength(const vector4& min, const vector4& max) noexcept { V = XMVector4ClampLengthV(V, min.V, max.V); }
 
         void store(float2 *v) const noexcept { XMStoreFloat2(v, V); };
         void store(float2a *v) const noexcept { XMStoreFloat2A(v, V); };
