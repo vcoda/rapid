@@ -1,5 +1,12 @@
 namespace rapid
 {
+    inline vector::operator float() const noexcept
+    {
+        float s;
+        XMStoreFloat(&s, V);
+        return s;
+    }
+
     inline vector splatX(const vector& v) noexcept { return XMVectorSplatX(v.V); }
     inline vector splatY(const vector& v) noexcept { return XMVectorSplatY(v.V); }
     inline vector splatZ(const vector& v) noexcept { return XMVectorSplatZ(v.V); }
