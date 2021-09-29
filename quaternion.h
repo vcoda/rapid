@@ -46,8 +46,6 @@ namespace rapid
         float w() const noexcept { return XMVectorGetW(Q); }
         vector3 xyz() const noexcept { return Q; }
 
-        void store(float2 *v) const noexcept { XMStoreFloat2(v, Q); };
-        void store(float2a *v) const noexcept { XMStoreFloat2A(v, Q); };
         void store(float3 *v) const noexcept { XMStoreFloat3(v, Q); };
         void store(float3a *v) const noexcept { XMStoreFloat3A(v, Q); };
         void store(float4 *v) const noexcept { XMStoreFloat4(v, Q); };
