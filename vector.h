@@ -31,7 +31,6 @@ namespace rapid
         void signMask() noexcept { V = XMVectorSplatSignMask(); }
 
         operator XMVECTOR() const noexcept { return V; }
-        operator float() const noexcept { float s; XMStoreFloat(&s, V); return s; }
     };
 
     inline vector operator*(float s, const vector& v) noexcept { return v * s; }
