@@ -37,11 +37,8 @@ namespace rapid
         quaternion conjugated() const noexcept { return XMQuaternionConjugate(Q); }
         void inverse() noexcept { Q = XMQuaternionInverse(Q); }
         quaternion inversed() const noexcept { return XMQuaternionInverse(Q); }
-
-        void pitchYawRoll(const float pitch, const float yaw, const float roll) noexcept { Q = XMQuaternionRotationRollPitchYaw(pitch, yaw, roll); }
-        void pitchYawRoll(const vector& angles) noexcept { Q = XMQuaternionRotationRollPitchYawFromVector(angles); }
-        void fromAxisAngle(const vector3& axis, float angle) noexcept { Q = XMQuaternionRotationAxis(axis, angle); }
-        vector3 toAxisAngle(float& angle) const noexcept { XMVECTOR axis; XMQuaternionToAxisAngle(&axis, &angle, Q); return axis; }
+        void fromAxisAngle(const vector3& axis, float angle, bool normalized) noexcept;
+        float toAxisAngle(vector3 *axis) const noexcept;
 
         float x() const noexcept { return XMVectorGetX(Q); }
         float y() const noexcept { return XMVectorGetY(Q); }
@@ -52,6 +49,5 @@ namespace rapid
         operator XMVECTOR() const noexcept { return Q; }
     };
 
-    inline vector3 operator*(const vector3& v, const quaternion& q) noexcept
-        { return XMVector3Rotate(v.V, q.Q); }
+    vector3 operator*(const vector3& v, const quaternion& q) noexcept;
 } // namespace rapid
