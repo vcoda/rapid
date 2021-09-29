@@ -47,11 +47,11 @@ namespace rapid
         bool nan() const noexcept { return XMVector3IsNaN(V); }
         bool infinite() const noexcept { return XMVector3IsInfinite(V); }
         bool unit() const noexcept {
-            XMVECTOR v = XMVectorSubtract(g_XMOne, XMVector3Dot(V, V));
+            XMVECTOR v = XMVectorSubtract(g_XMOne3, XMVector3Dot(V, V));
             return XMVector3LessOrEqual(XMVectorAbs(v), g_XMEpsilon);
         }
-        vector sum() const noexcept { return XMVector3Dot(V, XMVectorSet(1.f, 1.f, 1.f, 0.f)); }
-        vector sumAbs() const noexcept { return XMVector3Dot(XMVectorAbs(V), XMVectorSet(1.f, 1.f, 1.f, 0.f)); }
+        vector sum() const noexcept { return XMVector3Dot(V, g_XMOne3); }
+        vector sumAbs() const noexcept { return XMVector3Dot(XMVectorAbs(V), g_XMOne3); }
 
         vector dot(const vector3& v) const noexcept { return XMVector3Dot(V, v.V); }
         vector3 cross(const vector3& v) const noexcept { return XMVector3Cross(V, v.V); }
