@@ -4,8 +4,8 @@ namespace rapid
     {
     public:
         matrix() noexcept { *this = XMMatrixIdentity(); }
-        matrix(const XMMATRIX& m) noexcept: XMMATRIX(m) {}
-        matrix(const XMVECTOR& q) noexcept: XMMATRIX(XMMatrixRotationQuaternion(q)) {}
+        matrix(FXMMATRIX m) noexcept: XMMATRIX(m) {}
+        matrix(FXMVECTOR q) noexcept: XMMATRIX(XMMatrixRotationQuaternion(q)) {}
         explicit matrix(float _00, float _01,
             float _10, float _11) noexcept;
         explicit matrix(float _00, float _01, float _02,
