@@ -6,10 +6,10 @@ namespace rapid
         vector2() noexcept {}
         vector2(FXMVECTOR v) noexcept: vector(v) {}
         vector2(const vector& v) noexcept: vector(v) {}
-        vector2(const float x) noexcept: vector(x) {}
-        vector2(const float x, const float y) noexcept: vector(x, y) {}
         vector2(const float2& v) noexcept: vector(XMLoadFloat2(&v)) {}
         vector2(const float2a& v) noexcept: vector(XMLoadFloat2A(&v)) {}
+        explicit vector2(const float x) noexcept: vector(x) {}
+        explicit vector2(const float x, const float y) noexcept: vector(x, y) {}
 
         vector2 operator+(const vector2& v) const noexcept { return XMVectorAdd(V, v.V); }
         vector2 operator-(const vector2& v) const noexcept { return XMVectorSubtract(V, v.V); }

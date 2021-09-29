@@ -5,17 +5,17 @@ namespace rapid
     public:
         matrix() noexcept { *this = XMMatrixIdentity(); }
         matrix(const XMMATRIX& m) noexcept: XMMATRIX(m) {}
-        matrix(float _00, float _01,
+        matrix(const XMVECTOR& q) noexcept: XMMATRIX(XMMatrixRotationQuaternion(q)) {}
+        explicit matrix(float _00, float _01,
             float _10, float _11) noexcept;
-        matrix(float _00, float _01, float _02,
+        explicit matrix(float _00, float _01, float _02,
             float _10, float _11, float _12,
             float _20, float _21, float _22) noexcept;
-        matrix(float _00, float _01, float _02, float _03,
+        explicit matrix(float _00, float _01, float _02, float _03,
             float _10, float _11, float _12, float _13,
             float _20, float _21, float _22, float _23,
             float _30, float _31, float _32, float _33) noexcept;
-        matrix(const float scale, const float3& translation) noexcept;
-        matrix(const class quaternion& q) noexcept;
+        explicit matrix(const float scale, const float3& translation) noexcept;
 
         matrix operator*(const matrix& m) const noexcept { return XMMatrixMultiply(*this, m); }
         vector2 operator*(const vector2& v) const noexcept { return XMVector2Transform(v.V, *this); }

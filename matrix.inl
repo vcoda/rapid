@@ -6,6 +6,7 @@ namespace rapid
                  _10, _11, 0.f, 0.f,
                  0.f, 0.f, 1.f, 0.f,
                  0.f, 0.f, 0.f, 1.f) {}
+
     inline matrix::matrix(float _00, float _01, float _02,
         float _10, float _11, float _12,
         float _20, float _21, float _22) noexcept:
@@ -13,6 +14,7 @@ namespace rapid
                  _10, _11, _12, 0.f,
                  _20, _21, _22, 0.f,
                  0.f, 0.f, 0.f, 1.f) {}
+
     inline matrix::matrix(float _00, float _01, float _02, float _03,
         float _10, float _11, float _12, float _13,
         float _20, float _21, float _22, float _23,
@@ -21,13 +23,12 @@ namespace rapid
                  _10, _11, _12, _13,
                  _20, _21, _22, _23,
                  _30, _31, _32, _33) {}
+
     inline matrix::matrix(const float scale, const float3& translation) noexcept:
         XMMATRIX(scale, 0.f, 0.f, 0.f,
                  0.f, scale, 0.f, 0.f,
                  0.f, 0.f, scale, 0.f,
                  translation.x, translation.y, translation.z, 1.f) {}
-    inline matrix::matrix(const quaternion& q) noexcept:
-        XMMATRIX(XMMatrixRotationQuaternion(q.Q)) {}
 
     inline float matrix::inverse() noexcept
     {

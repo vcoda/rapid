@@ -7,10 +7,10 @@ namespace rapid
 
         vector() noexcept {}
         vector(FXMVECTOR v) noexcept: V(v) {}
-        vector(const float x) noexcept: V(XMVectorReplicate(x)) {}
-        vector(const float x, const float y) noexcept: V(XMVectorSet(x, y, 0.f, 1.f)) {}
-        vector(const float x, const float y, const float z) noexcept: V(XMVectorSet(x, y, z, 1.f)) {}
-        vector(const float x, const float y, const float z, const float w) noexcept: V(XMVectorSet(x, y, z, w)) {}
+        explicit vector(const float x) noexcept: V(XMVectorReplicate(x)) {}
+        explicit vector(const float x, const float y) noexcept: V(XMVectorSet(x, y, 0.f, 1.f)) {}
+        explicit vector(const float x, const float y, const float z) noexcept: V(XMVectorSet(x, y, z, 1.f)) {}
+        explicit vector(const float x, const float y, const float z, const float w) noexcept: V(XMVectorSet(x, y, z, w)) {}
 
         const vector& operator+() const noexcept { return *this; }
         vector operator-() const noexcept { return XMVectorNegate(V); }

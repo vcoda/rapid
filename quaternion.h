@@ -7,9 +7,9 @@ namespace rapid
 
         quaternion() noexcept: Q(XMQuaternionIdentity()) {}
         quaternion(FXMVECTOR q) noexcept: Q(q) {}
-        quaternion(const float x, const float y, const float z, const float w) noexcept: Q(XMVectorSet(x, y, z, w)) {}
-        quaternion(const vector3& v, const float w) noexcept: Q(v) { Q = XMVectorSetW(Q, w); }
         quaternion(const matrix& m) noexcept: Q(XMQuaternionRotationMatrix(m)) {}
+        explicit quaternion(const vector3& v, const float w) noexcept: Q(v) { Q = XMVectorSetW(Q, w); }
+        explicit quaternion(const float x, const float y, const float z, const float w) noexcept: Q(XMVectorSet(x, y, z, w)) {}
 
         quaternion operator*(const quaternion& q) const noexcept { return XMQuaternionMultiply(Q, q.Q); }
         vector operator|(const quaternion& q) const noexcept { return XMQuaternionDot(Q, q.Q); }
