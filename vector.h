@@ -34,6 +34,6 @@ namespace rapid
         operator float() const noexcept;
     };
 
-    inline vector operator*(float s, const vector& v) noexcept { return v * s; }
-    inline vector operator/(float s, const vector& v) noexcept { return vector(s)/v; }
+    inline vector operator*(float s, const vector& v) noexcept;
+    inline vector operator/(float s, const vector& v) noexcept;
 } // namespace rapid

@@ -71,4 +71,9 @@ namespace rapid
         const vector3 p = orthoProjectOnSphereRH(v);
         return p * vector3(1.f, 1.f, -1.f);
     }
+
+    inline vector operator*(float s, const vector& v) noexcept
+        { return v * s; }
+    inline vector operator/(float s, const vector& v) noexcept
+        { return vector(s)/v; }
 } // namespace rapid
