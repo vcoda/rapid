@@ -23,9 +23,8 @@ namespace rapid
 
         bool nan() const noexcept { return XMQuaternionIsNaN(Q); }
         bool infinite() const noexcept { return XMQuaternionIsInfinite(Q); }
-        bool unit() const noexcept { return XMQuaternionIsIdentity(Q); }
+        bool identity() const noexcept { return XMQuaternionIsIdentity(Q); }
 
-        void identity() noexcept { Q = XMQuaternionIdentity(); }
         vector dot(const quaternion& q) noexcept { return XMQuaternionDot(Q, q.Q); }
         vector lengthSq() const noexcept { return XMQuaternionLengthSq(Q); }
         vector rcpLengthSq() const noexcept { return XMQuaternionReciprocalLength(Q); }

@@ -25,9 +25,8 @@ namespace rapid
 
         bool nan() const noexcept { return XMMatrixIsNaN(*this); }
         bool infinite() const noexcept { return XMMatrixIsInfinite(*this); }
-        bool unit() const noexcept { return XMMatrixIsIdentity(*this); }
+        bool identity() const noexcept { return XMMatrixIsIdentity(*this); }
 
-        void identity() noexcept { *this = XMMatrixIdentity(); }
         float inverse() noexcept;
         vector determinant() const noexcept { return XMMatrixDeterminant(*this); }
 
