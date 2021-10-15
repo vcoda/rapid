@@ -32,7 +32,7 @@ namespace rapid
 #else
         __m128 vf = _mm_load_ps(reinterpret_cast<const float*>(&v));
         __m128i vh = _mm_cvtps_ph(vf, 0);
-        _mm_storel_epi64(reinterpret_cast<__m128i*>(&hv), hv);
+        _mm_storel_epi64(reinterpret_cast<__m128i*>(&hv), vh);
 #endif
         return hv;
     }
