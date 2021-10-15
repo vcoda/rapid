@@ -6,6 +6,7 @@
 #else
 #define _XM_NO_INTRINSICS_
 #define _XM_NO_XMVECTOR_OVERLOADS_
+#define XM_DEPRECATED
 #endif
 #include "DirectXMath/Inc/DirectXMath.h"
 #include "DirectXMath/Inc/DirectXPackedVector.h"
