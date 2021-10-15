@@ -7,19 +7,33 @@ namespace rapid
 
     inline float4a htof(const half4& v) noexcept
     {
-        __m128i hV = _mm_loadl_epi64(reinterpret_cast<const __m128i*>(&v));
-        __m128 fV = _mm_cvtph_ps(hV);
         float4a fv;
-        _mm_stream_ps(reinterpret_cast<float*>(&fv), fV);
+#ifdef _XM_NO_INTRINSICS_
+        fv.x = PackedVector::XMConvertHalfToFloat(v.x);
+        fv.y = PackedVector::XMConvertHalfToFloat(v.y);
+        fv.z = PackedVector::XMConvertHalfToFloat(v.z);
+        fv.w = PackedVector::XMConvertHalfToFloat(v.w);
+#else
+        __m128i vh = _mm_loadl_epi64(reinterpret_cast<const __m128i*>(&v));
+        __m128 vf = _mm_cvtph_ps(vh);
+        _mm_stream_ps(reinterpret_cast<float*>(&fv), vf);
+#endif
         return fv;
     }
 
     inline half4 ftoh(const float4& v) noexcept
     {
-        __m128 fV = _mm_load_ps(reinterpret_cast<const float*>(&v));
-        __m128i hV = _mm_cvtps_ph(fV, 0);
         half4 hv;
-        _mm_storel_epi64(reinterpret_cast<__m128i*>(&hv), hV);
+#ifdef _XM_NO_INTRINSICS_
+        hv.x = PackedVector::XMConvertFloatToHalf(v.x);
+        hv.y = PackedVector::XMConvertFloatToHalf(v.y);
+        hv.z = PackedVector::XMConvertFloatToHalf(v.z);
+        hv.w = PackedVector::XMConvertFloatToHalf(v.w);
+#else
+        __m128 vf = _mm_load_ps(reinterpret_cast<const float*>(&v));
+        __m128i vh = _mm_cvtps_ph(vf, 0);
+        _mm_storel_epi64(reinterpret_cast<__m128i*>(&hv), hv);
+#endif
         return hv;
     }
 
