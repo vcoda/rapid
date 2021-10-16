@@ -32,7 +32,7 @@ namespace rapid
         x = (x + (x >> 4)) & c4;
         x *= 0x01010101u;
         return int32_t(x >> 24);
-    #endif;
+    #endif
     }
 #endif // _M_X64
 } // namespace rapid
