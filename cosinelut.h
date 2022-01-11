@@ -5,8 +5,8 @@ namespace rapid
     public:
         explicit cosinelut(float start, float step, uint32_t count);
         ~cosinelut();
-        float sin(const uint32_t i) const noexcept;
-        float cos(const uint32_t i) const noexcept;
+        float sin(uint32_t i) const noexcept;
+        float cos(uint32_t i) const noexcept;
 
     private:
         struct vsincos
