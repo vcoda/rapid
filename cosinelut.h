@@ -9,13 +9,11 @@ namespace rapid
         float cos(uint32_t i) const noexcept;
 
     private:
+        const uint32_t size;
         struct vsincos
         {
             flint4 vsin;
             flint4 vcos;
-        };
-
-        const uint32_t size;
-        vsincos *lut;
+        } *lut;
     };
 } // namespace rapid
