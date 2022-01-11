@@ -38,12 +38,6 @@ namespace rapid
     typedef XMFLOAT4X4 float4x4;
     typedef XMFLOAT4X4A float4x4a;
 
-    union flint
-    {
-        int i;
-        float f;
-    };
-
     namespace constants
     {
         constexpr float exp = 2.718281828f;
@@ -71,6 +65,7 @@ namespace rapid
 #include "matrix.h"
 #include "quaternion.h"
 #include "plane.h"
+#include "flint.h"
 #include "cosinelut.h"
 #include "vector.inl"
 #include "matrix.inl"

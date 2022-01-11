@@ -14,8 +14,8 @@ namespace rapid
         for (uint32_t i = 0; i < size; ++i)
         {
             sincosEst(&vsin, &vcos, thetas);
-            vsin.store(&lut[i].vsin);
-            vcos.store(&lut[i].vcos);
+            vsin.store(&lut[i].vsin.v);
+            vcos.store(&lut[i].vcos.v);
             thetas += steps;
         }
     }
@@ -23,7 +23,7 @@ namespace rapid
     inline cosinelut::~cosinelut()
         { delete[] lut; }
     inline float cosinelut::sin(uint32_t i) const noexcept
-        { return lut[i/4].qsin[i%4]; }
+        { return lut[i/4].vsin.f[i%4]; }
     inline float cosinelut::cos(uint32_t i) const noexcept
-        { return lut[i/4].qcos[i%4]; }
+        { return lut[i/4].vcos.f[i%4]; }
 } // namespace rapid
