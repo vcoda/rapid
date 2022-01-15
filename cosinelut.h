@@ -4,9 +4,9 @@ namespace rapid
     {
     public:
         explicit cosinelut(float start, float step, uint32_t count);
-        ~cosinelut();
-        float sin(uint32_t i) const noexcept;
-        float cos(uint32_t i) const noexcept;
+        ~cosinelut() { delete[] lut; }
+        float sin(uint32_t i) const noexcept { return lut[i/4].vsin.f[i%4]; }
+        float cos(uint32_t i) const noexcept { return lut[i/4].vcos.f[i%4]; }
 
     private:
         const uint32_t size;

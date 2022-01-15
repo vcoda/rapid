@@ -19,11 +19,4 @@ namespace rapid
             thetas += steps;
         }
     }
-
-    inline cosinelut::~cosinelut()
-        { delete[] lut; }
-    inline float cosinelut::sin(uint32_t i) const noexcept
-        { return lut[i/4].vsin.f[i%4]; }
-    inline float cosinelut::cos(uint32_t i) const noexcept
-        { return lut[i/4].vcos.f[i%4]; }
 } // namespace rapid
