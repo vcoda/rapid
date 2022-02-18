@@ -10,7 +10,7 @@ namespace rapid
         constexpr int seedPos = expPos - 8;
         constexpr int lutSize = 2 << lookupBits;
         constexpr int lookupMask = lutSize - 1;
-        const uint32_t i = ((const flint*)(&x))->i;
+        const uint32_t i = ((const ieee754float *)(&x))->i;
         const double y = double(x * .5f);
         ieee754float seed;
         seed.i = ((((3 * ieee754float::bias - 1) - ((i >> expPos) & 0xFF)) >> 1) << expPos) | isqrtLut[(i >> lookupPos) & lookupMask];
