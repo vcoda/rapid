@@ -73,6 +73,7 @@ namespace rapid
 #include "quaternion.inl"
 #include "sincos.inl"
 #include "cosinelut.inl"
+#include "single.inl"
 #include "sqrt.inl"
 #include "minmax.inl"
 #include "half.inl"
