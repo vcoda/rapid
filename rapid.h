@@ -66,7 +66,6 @@ namespace rapid
 #include "matrix.h"
 #include "quaternion.h"
 #include "plane.h"
-#include "flint.h"
 #include "cosinelut.h"
 #include "vector.inl"
 #include "matrix.inl"
