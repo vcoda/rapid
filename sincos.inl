@@ -5,7 +5,7 @@ namespace rapid
 
     // "Faster Math Functions" by Robin Green
     // http://www.ue.eti.pg.gda.pl/~wrona/lab_dsp/cw04/fun_aprox.pdf
-    inline float sinEst(const float x) noexcept
+    constexpr float sinEst(const float x) noexcept
     {
         float x2 = x * x;
         float x3 = x2 * x;
