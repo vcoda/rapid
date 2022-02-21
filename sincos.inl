@@ -8,12 +8,10 @@ namespace rapid
     constexpr float sinEst(const float x) noexcept
     {
         float x2 = x * x;
-        float x3 = x2 * x;
-        float x5 = x3 * x2;
-        float x7 = x5 * x2;
-        return x - 0.16666656732559f * x3 +
-                   0.00833220803f * x5 -
-                   0.000195168955f * x7;
+        return x - x *
+            x2 * (0.16666656732559f -
+            x2 * (0.00833220803f -
+            x2 * 0.000195168955f));
     }
 
     inline float cos(const float x) noexcept
