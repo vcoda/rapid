@@ -56,7 +56,7 @@ inline ieee754half& ieee754half::operator--() noexcept
 // Unary prefix
 inline ieee754half ieee754half::operator-() const noexcept
 {
-    return ieee754half(static_cast<uint16_t>(binary ^ 0x8000));
+    return ieee754half(static_cast<uint16_t>(binary ^ 0b1000000000000000));
 }
 
 // Multiplication
