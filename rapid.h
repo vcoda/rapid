@@ -58,7 +58,8 @@ namespace rapid
     }
 } // namespace rapid
 
-#include "ieee754.h"
+#include "ieee754half.h"
+#include "ieee754float.h"
 #include "vector.h"
 #include "vector2.h"
 #include "vector3.h"
