@@ -212,7 +212,7 @@ inline bool ieee754half::operator>=(const ieee754half h) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Eqaulity
+// Equality
 inline bool ieee754half::operator==(const ieee754half h) const noexcept
 {
     return binary == h.binary;
@@ -264,7 +264,7 @@ inline bool ieee754half::operator>=(const float s) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Eqaulity
+// Equality
 inline bool ieee754half::operator==(const float s) const noexcept
 {
     return operator==(ieee754half(s));
