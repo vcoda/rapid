@@ -37,6 +37,7 @@ namespace rapid
 
         ieee754half() noexcept {}
         ieee754half(uint16_t h) noexcept: binary(h) {}
+        ieee754half(int i) noexcept: binary(i) {}
         ieee754half(float s) noexcept;
 
         ieee754half operator++(int) const noexcept;
