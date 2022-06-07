@@ -13,6 +13,17 @@ namespace rapid
     class ieee754half
     {
     public:
+        static constexpr uint16_t eps  = 0b0001010000000000; // 2^-10 = 9.77e-04     Machine epsilon
+        static constexpr uint16_t fmin = 0b0000010000000000; // 0.00006103515625     Smallest positive normal number
+        static constexpr uint16_t fmax = 0b0111101111111111; // 65504.0              Largest normal number
+        static constexpr uint16_t smin = 0b0000000000000001; // 0.000000059604645    Smallest positive subnormal number
+        static constexpr uint16_t smax = 0b0000001111111111; // 0.000060975552       Largest subnormal number
+        static constexpr uint16_t low  = 0b1111101111111111; // -65504.0             Smallest negative number
+        static constexpr uint16_t one  = 0b0011110000000000; // 1.0                  One
+        static constexpr uint16_t inf  = 0b0111110000000000; //                      Infinity
+        static constexpr uint16_t nan  = 0b0111111000000000; //                      Not-a-Number
+        static constexpr uint16_t bias = 15;                 //                      Exponent bias
+
         union
         {
             uint16_t binary;
