@@ -302,5 +302,81 @@ inline ieee754half::operator double() const noexcept
     return static_cast<double>(_mm_cvtss_f32(s));
 }
 
+inline float operator*(const float s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_mul_ss(x, y);
+    return _mm_cvtss_f32(x);
+}
+
+inline float operator/(const float s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_div_ss(x, y);
+    return _mm_cvtss_f32(x);
+}
+
+inline float operator+(const float s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_add_ss(x, y);
+    return _mm_cvtss_f32(x);
+}
+
+inline float operator-(const float s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_sub_ss(x, y);
+    return _mm_cvtss_f32(x);
+}
+
+inline float& operator*=(float& s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_mul_ss(x, y);
+    s = _mm_cvtss_f32(x);
+    return s;
+}
+
+inline float& operator/=(float& s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_div_ss(x, y);
+    s = _mm_cvtss_f32(x);
+    return s;
+}
+
+inline float& operator+=(float& s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_add_ss(x, y);
+    s = _mm_cvtss_f32(x);
+    return s;
+}
+
+inline float& operator-=(float& s, const ieee754half h) noexcept
+{
+    __m128 x = _mm_set_ss(s);
+    __m128i iy = _MM_LOAD_HALF(h.binary);
+    __m128 y = _mm_cvtph_ps(iy);
+    x = _mm_sub_ss(x, y);
+    s = _mm_cvtss_f32(x);
+    return s;
+}
+
 static_assert(sizeof(ieee754half) == sizeof(uint16_t), "IEEE 754 half-precision floating-point format must be 16-bit");
 } // namespace rapid

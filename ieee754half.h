@@ -77,6 +77,14 @@ namespace rapid
         operator double() const noexcept;
     };
 
+    float operator*(float s, ieee754half h) noexcept;
+    float operator/(float s, ieee754half h) noexcept;
+    float operator+(float s, ieee754half h) noexcept;
+    float operator-(float s, ieee754half h) noexcept;
+    float& operator*=(float& s, ieee754half h) noexcept;
+    float& operator/=(float& s, ieee754half h) noexcept;
+    float& operator+=(float& s, ieee754half h) noexcept;
+    float& operator-=(float& s, ieee754half h) noexcept;
 } // namespace rapid
 
 #include "iieee754half.inl"
