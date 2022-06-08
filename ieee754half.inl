@@ -276,6 +276,16 @@ inline bool ieee754half::operator!=(const float s) const noexcept
     return operator!=(ieee754half(s));
 }
 
+inline ieee754half::operator int() const noexcept
+{
+    return static_cast<int>(ieee754half::operator float());
+}
+
+inline ieee754half::operator unsigned int() const noexcept
+{
+    return static_cast<unsigned int>(ieee754half::operator float());
+}
+
 // Cast to single precision floating-point format
 inline ieee754half::operator float() const noexcept
 {

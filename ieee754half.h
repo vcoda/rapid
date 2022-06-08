@@ -71,6 +71,8 @@ namespace rapid
         bool operator==(float s) const noexcept;
         bool operator!=(float s) const noexcept;
 
+        operator int() const noexcept;
+        operator unsigned int() const noexcept;
         operator float() const noexcept;
         operator double() const noexcept;
     };
