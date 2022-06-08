@@ -3,7 +3,6 @@
 
 namespace rapid
 {
-// Conversion
 inline ieee754half::ieee754half(const float s) noexcept
 {
     __m128 v = _mm_set_ss(s);
@@ -11,7 +10,6 @@ inline ieee754half::ieee754half(const float s) noexcept
     binary = _MM_EXTRACT_HALF(h);
 }
 
-// Postfix increment
 inline ieee754half ieee754half::operator++(int) const noexcept
 {
     __m128i h = _MM_LOAD_HALF(binary);
@@ -21,7 +19,6 @@ inline ieee754half ieee754half::operator++(int) const noexcept
     return _MM_EXTRACT_HALF(h);
 }
 
-// Postfix decrement
 inline ieee754half ieee754half::operator--(int) const noexcept
 {
     __m128i h = _MM_LOAD_HALF(binary);
@@ -31,7 +28,6 @@ inline ieee754half ieee754half::operator--(int) const noexcept
     return _MM_EXTRACT_HALF(h);
 }
 
-// Prefix increment
 inline ieee754half& ieee754half::operator++() noexcept
 {
     __m128i h = _MM_LOAD_HALF(binary);
@@ -42,7 +38,6 @@ inline ieee754half& ieee754half::operator++() noexcept
     return *this;
 }
 
-// Prefix decrement
 inline ieee754half& ieee754half::operator--() noexcept
 {
     __m128i h = _MM_LOAD_HALF(binary);
@@ -53,13 +48,11 @@ inline ieee754half& ieee754half::operator--() noexcept
     return *this;
 }
 
-// Unary prefix
 inline ieee754half ieee754half::operator-() const noexcept
 {
-    return ieee754half(static_cast<uint16_t>(binary ^ 0b1000000000000000));
+    return ieee754half(static_cast<uint16_t>(binary ^ 0b1000000000000000)); // Invert sign bit
 }
 
-// Multiplication
 inline ieee754half ieee754half::operator*(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -71,7 +64,6 @@ inline ieee754half ieee754half::operator*(const ieee754half h) const noexcept
     return _MM_EXTRACT_HALF(ix);
 }
 
-// Division
 inline ieee754half ieee754half::operator/(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -83,7 +75,6 @@ inline ieee754half ieee754half::operator/(const ieee754half h) const noexcept
     return _MM_EXTRACT_HALF(ix);
 }
 
-// Addition
 inline ieee754half ieee754half::operator+(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -95,7 +86,6 @@ inline ieee754half ieee754half::operator+(const ieee754half h) const noexcept
     return _MM_EXTRACT_HALF(ix);
 }
 
-// Subtraction
 inline ieee754half ieee754half::operator-(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -107,7 +97,6 @@ inline ieee754half ieee754half::operator-(const ieee754half h) const noexcept
     return _MM_EXTRACT_HALF(ix);
 }
 
-// Assignment multiplication
 inline ieee754half& ieee754half::operator*=(const ieee754half h) noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -120,7 +109,6 @@ inline ieee754half& ieee754half::operator*=(const ieee754half h) noexcept
     return *this;
 }
 
-// Assignment division
 inline ieee754half& ieee754half::operator/=(const ieee754half h) noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -133,7 +121,6 @@ inline ieee754half& ieee754half::operator/=(const ieee754half h) noexcept
     return *this;
 }
 
-// Assignment addition
 inline ieee754half& ieee754half::operator+=(const ieee754half h) noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -146,7 +133,6 @@ inline ieee754half& ieee754half::operator+=(const ieee754half h) noexcept
     return *this;
 }
 
-// Assignment subtraction
 inline ieee754half& ieee754half::operator-=(const ieee754half h) noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -159,7 +145,6 @@ inline ieee754half& ieee754half::operator-=(const ieee754half h) noexcept
     return *this;
 }
 
-// Assignment
 inline ieee754half& ieee754half::operator=(const float s) noexcept
 {
     __m128 x = _mm_set_ss(s);
@@ -168,7 +153,6 @@ inline ieee754half& ieee754half::operator=(const float s) noexcept
     return *this;
 }
 
-// Less than
 inline bool ieee754half::operator<(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -179,7 +163,6 @@ inline bool ieee754half::operator<(const ieee754half h) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Greater than
 inline bool ieee754half::operator>(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -190,7 +173,6 @@ inline bool ieee754half::operator>(const ieee754half h) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Less than or equal
 inline bool ieee754half::operator<=(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -201,7 +183,6 @@ inline bool ieee754half::operator<=(const ieee754half h) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Greater than or equal
 inline bool ieee754half::operator>=(const ieee754half h) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -212,19 +193,16 @@ inline bool ieee754half::operator>=(const ieee754half h) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Equality
 inline bool ieee754half::operator==(const ieee754half h) const noexcept
 {
     return binary == h.binary;
 }
 
-// Inequality
 inline bool ieee754half::operator!=(const ieee754half h) const noexcept
 {
     return binary != h.binary;
 }
 
-// Less than
 inline bool ieee754half::operator<(const float s) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -234,7 +212,6 @@ inline bool ieee754half::operator<(const float s) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Greater than
 inline bool ieee754half::operator>(const float s) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -244,7 +221,6 @@ inline bool ieee754half::operator>(const float s) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Less than or equal
 inline bool ieee754half::operator<=(const float s) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -254,7 +230,6 @@ inline bool ieee754half::operator<=(const float s) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Greater than or equal
 inline bool ieee754half::operator>=(const float s) const noexcept
 {
     __m128i ix = _MM_LOAD_HALF(binary);
@@ -264,13 +239,11 @@ inline bool ieee754half::operator>=(const float s) const noexcept
     return x.m128_u32[0] != 0;
 }
 
-// Equality
 inline bool ieee754half::operator==(const float s) const noexcept
 {
     return operator==(ieee754half(s));
 }
 
-// Inequality
 inline bool ieee754half::operator!=(const float s) const noexcept
 {
     return operator!=(ieee754half(s));
@@ -286,7 +259,6 @@ inline ieee754half::operator unsigned int() const noexcept
     return static_cast<unsigned int>(ieee754half::operator float());
 }
 
-// Cast to single precision floating-point format
 inline ieee754half::operator float() const noexcept
 {
     __m128i h = _MM_LOAD_HALF(binary);
@@ -294,7 +266,6 @@ inline ieee754half::operator float() const noexcept
     return _mm_cvtss_f32(s);
 }
 
-// Cast to double precision floating-point format
 inline ieee754half::operator double() const noexcept
 {
     __m128i h = _MM_LOAD_HALF(binary);
