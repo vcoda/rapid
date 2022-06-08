@@ -10,9 +10,8 @@ namespace rapid
        Keep in mind that this doesn't improve FPU perfomance, the implementation
        intended to simplify usage of FP16 format with C++ operator overloading. */
 
-    class ieee754half
+    struct ieee754half
     {
-    public:
         static constexpr uint16_t eps  = 0b0001010000000000; // 2^-10 = 9.77e-04     Machine epsilon
         static constexpr uint16_t fmin = 0b0000010000000000; // 0.00006103515625     Smallest positive normal number
         static constexpr uint16_t fmax = 0b0111101111111111; // 65504.0              Largest normal number
