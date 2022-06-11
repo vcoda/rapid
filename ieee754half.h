@@ -84,6 +84,13 @@ namespace rapid
     float& operator/=(float& s, ieee754half h) noexcept;
     float& operator+=(float& s, ieee754half h) noexcept;
     float& operator-=(float& s, ieee754half h) noexcept;
+
+    bool operator<(float s, ieee754half h) noexcept { return h > s; }
+    bool operator>(float s, ieee754half h) noexcept { return h < s; }
+    bool operator<=(float s, ieee754half h) noexcept { return h >= s; }
+    bool operator>=(float s, ieee754half h) noexcept { return h <= s; }
+    bool operator==(float s, ieee754half h) noexcept { return h == s; }
+    bool operator!=(float s, ieee754half h) noexcept { return h != s; }
 } // namespace rapid
 
 #include "iieee754half.inl"
