@@ -268,9 +268,7 @@ inline ieee754half::operator float() const noexcept
 
 inline ieee754half::operator double() const noexcept
 {
-    __m128i h = _MM_LOAD_HALF(binary);
-    __m128 s = _mm_cvtph_ps(h);
-    return static_cast<double>(_mm_cvtss_f32(s));
+    return static_cast<double>(ieee754half::operator float());
 }
 
 inline float operator*(const float s, const ieee754half h) noexcept
