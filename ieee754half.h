@@ -93,6 +93,6 @@ namespace rapid
     bool operator!=(float s, ieee754half h) noexcept { return h != s; }
 } // namespace rapid
 
-#include "iieee754half.inl"
+#include "ieee754half.inl"
 
 #endif // XM_F16C_INTRINSICS_
