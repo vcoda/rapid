@@ -23,14 +23,13 @@
 #ifdef __cpuid
 #undef __cpuid
 #endif
-#define __cpuid(cpu, func)\
-	__cpuid_count(func, 0, cpu[0], cpu[1], cpu[2], cpu[3])
+#define __cpuid(reg, leaf)\
+    __cpuid_count(leaf, 0, reg[0], reg[1], reg[2], reg[3])
 
 #ifdef __cpuidex
 #undef __cpuidex
 #endif
-// TODO: subfunc
-#define __cpuidex(cpu, func, subfunc)\
-	__cpuid_count(func, 0, cpu[0], cpu[1], cpu[2], cpu[3])
+#define __cpuidex(reg, leaf, subleaf)\
+    __cpuid_count(leaf, subleaf, reg[0], reg[1], reg[2], reg[3])
 
 #endif // !_MSC_VER
