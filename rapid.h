@@ -77,6 +77,6 @@ namespace rapid
 #include "single.inl"
 #include "sqrt.inl"
 #include "minmax.inl"
-#include "half.inl"
+#include "ieee754half.inl"
 #include "misc.inl"
 #include "popcnt.inl"

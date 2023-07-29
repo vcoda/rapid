@@ -1,3 +1,5 @@
+#ifdef XM_F16C_INTRINSICS_
+
 #define _MM_LOAD_HALF(h) _mm_cvtsi32_si128(static_cast<int>(h))
 #define _MM_EXTRACT_HALF(v) static_cast<uint16_t>(_mm_extract_epi16(v, 0))
 
@@ -349,3 +351,5 @@ inline float& operator-=(float& s, const ieee754half h) noexcept
 
 static_assert(sizeof(ieee754half) == sizeof(uint16_t), "IEEE 754 half-precision floating-point format must be 16-bit");
 } // namespace rapid
+
+#endif // XM_F16C_INTRINSICS_
