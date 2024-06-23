@@ -7,7 +7,6 @@ namespace rapid
         constexpr int expPos = 23;
         constexpr int lookupBits = 8;
         constexpr int lookupPos = expPos - lookupBits;
-        constexpr int seedPos = expPos - 8;
         constexpr int lutSize = 2 << lookupBits;
         constexpr int lookupMask = lutSize - 1;
         const uint32_t i = ((const ieee754float *)(&x))->i;
