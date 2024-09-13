@@ -134,6 +134,27 @@ namespace rapid
         return inv;
     }
 
+    inline matrix negateY(const matrix& m) noexcept
+    {
+        matrix neg;
+        neg.r[0] = m.r[0];
+        neg.r[1] = XMVectorMultiply(m.r[1], g_XMNegateY);
+        neg.r[2] = m.r[2];
+        neg.r[3] = m.r[3];
+        return neg;
+    }
+
+    inline matrix matrix3(const matrix& m) noexcept
+    {
+        matrix m3x3;
+        m3x3.r[0] = m.r[0];
+        m3x3.r[1] = m.r[1];
+        m3x3.r[2] = m.r[2];
+        m3x3.r[3] = g_XMZero;
+        m3x3.r[0].m128_f32[3] = m3x3.r[1].m128_f32[3] = m3x3.r[2].m128_f32[3] = 0.f;
+        return m3x3;
+    }
+
     // Assuming your matrix multiplication follows the convention: M = (S * R * T)
     // (where M is your composed matrix, T is a Translation matrix, R rotation, S scale),
     // then we can normalize the first three rows of the matrix to get just the T * R part.
