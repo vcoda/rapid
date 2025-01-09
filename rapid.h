@@ -8,6 +8,7 @@
 #define _XM_NO_XMVECTOR_OVERLOADS_
 #define XM_DEPRECATED
 #endif
+#define XMGLOBALCONST constexpr
 #include "DirectXMath/Inc/DirectXMath.h"
 #include "DirectXMath/Inc/DirectXPackedVector.h"
 
