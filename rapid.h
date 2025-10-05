@@ -80,3 +80,7 @@ namespace rapid
 #include "ieee754half.inl"
 #include "misc.inl"
 #include "popcnt.inl"
+
+#ifdef align
+#undef align
+#endif
