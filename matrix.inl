@@ -147,13 +147,10 @@ namespace rapid
     inline matrix matrix3(const matrix& m) noexcept
     {
         matrix m3x3;
-        m3x3.r[0] = m.r[0];
-        m3x3.r[1] = m.r[1];
-        m3x3.r[2] = m.r[2];
+        m3x3.r[0] = XMVectorSetW(m.r[0], 0.f);
+        m3x3.r[1] = XMVectorSetW(m.r[1], 0.f);
+        m3x3.r[2] = XMVectorSetW(m.r[2], 0.f);
         m3x3.r[3] = g_XMZero;
-        m3x3.r[0] = XMVectorSetW(m3x3.r[0], 0.f);
-        m3x3.r[1] = XMVectorSetW(m3x3.r[1], 0.f);
-        m3x3.r[2] = XMVectorSetW(m3x3.r[2], 0.f);
         return m3x3;
     }
 
